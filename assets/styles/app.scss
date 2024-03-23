@@ -1,0 +1,256 @@
+@import "~bootstrap/scss/bootstrap";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*HEADER*/
+/* Asegura que el encabezado ocupe toda la pantalla */
+#encabezado {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.nav-item {
+    margin: 0 50px;
+}
+
+/* Cambia el color de fondo del botón de iniciar sesión a verde y la letra a blanca */
+.btn-outline-success {
+    background-color: green;
+    color: white;
+}
+
+/* Cambia el color del icono del carrito a verde */
+.btn-outline-primary {
+    border: none;
+    margin-left: 50px;
+    .fas.fa-shopping-cart {
+        color: green;
+        font-size: 24px;
+    } 
+}  
+
+/*FOOTER*/
+#pie {
+    background-color: green; // Cambia el color de fondo a verde
+    color: white; // Cambia el color de la letra a blanco
+    text-align: center; // Centra el contenido del pie de página
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed; // Fija el pie de página en su posición
+    bottom: 0; // Asegura que el pie de página esté en la parte inferior de la página
+    width: 100%; // Hace que el pie de página tenga el ancho completo
+}
+
+/*CAROUSEL*/
+.carousel-inner {
+    height: 50vh; // Ajusta este valor según tus necesidades
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 767px) {
+    .carousel-inner {
+        height: 20vh; // Reduce the height of the carousel on smaller screens
+    }
+}
+
+/*CARDS*/
+
+/* Establece el tamaño de las tarjetas y permite que se adapten a pantallas pequeñas */
+.same-width .card {
+    width: 611px;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;
+    border: none; // Elimina el borde de las tarjetas
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Añade un sombreado a las tarjetas
+}
+
+/* Establece el margen de las imágenes dentro de las tarjetas */
+.same-width .card img {
+    width: 100%;
+    height: auto;
+    margin: 10px; // Ajusta este valor según tus necesidades
+    object-fit: contain; // Ajusta la imagen para que se ajuste al tamaño de la tarjeta
+}
+
+/* Establece la letra del título en negrita */
+.same-width .card .card-title {
+    font-weight: bold; // Hace que la letra del título sea en negrita
+}
+
+/* Establece el tamaño, las esquinas y la posición de los botones */
+.same-width .btn-primary {
+   padding: 10px 20px; // Ajusta este valor según tus necesidades
+    border-radius: 10%; // Hace que los botones no tengan esquinas
+    margin-top: 20px; // Hace que los botones estén más bajos
+    margin-left: 50px;
+    border:none;
+    background-color: green;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .same-width .card {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.same-width .btn-primary:hover {
+    background-color: darkgreen;
+}
+
+/*CONTACTO*/
+
+/* Establece el estilo del título y el párrafo */
+h1.titulo-24, .mb-3.mb-md-0 p {
+    margin-top: 50px; /* Ajusta este valor según tus necesidades */
+}
+
+/* Establece el estilo de la imagen */
+.col-12.col-md-6.order-1.order-md-3.offset-md-1 img {
+    margin-top: 50px; /* Ajusta este valor según tus necesidades */
+}
+
+/* Establece el estilo de los campos de entrada del formulario */
+#contact-form input[type="text"], 
+#contact-form input[type="email"], 
+#contact-form textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid green; /* Establece el borde de color verde */
+    border-radius: 0; /* Hace que los campos de entrada sean rectangulares sin esquinas */
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+/* Establece el estilo del botón de envío */
+#contact-form input[type="submit"],
+#contact-form button,
+#contact-form input[type="button"] {
+    background-color: green; /* Establece el color de fondo a verde */
+    color: white; /* Establece el color de la letra a blanco */
+    border: none;
+    border-radius: 10px; /* Hace que el botón sea rectangular sin esquinas */
+    padding: 10px 20px;
+}
+
+#contact-form {
+    margin-bottom: 50px; /* Ajusta este valor según tus necesidades */
+}
+
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 576px) {
+    h5.titulo-24, .mb-3.mb-md-0 p, .col-12.col-md-6.order-1.order-md-3.offset-md-1 img {
+        margin-left: 20px; /* Añade margen a la izquierda */
+        margin-right: 20px; /* Añade margen a la derecha */
+    }
+}
+
+/*CONOCENOS*/
+
+/* Estilo para la imagen principal */
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin: 2%; /* Ajusta este valor según tus necesidades */
+}
+
+.image-container img {
+    width: 96%;
+    height: auto;
+}
+
+/* Estilo para las secciones de contenido */
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    margin: 20px auto; /* Ajusta este valor según tus necesidades */
+}
+
+.text-section {
+    flex: 1;
+    margin-right: 10px; /* Ajusta este valor según tus necesidades */
+}
+
+.image-section {
+    flex: 1;
+    margin-left: 10px; /* Ajusta este valor según tus necesidades */
+}
+
+/*CONOCENOS*/
+
+/* Estilo para la imagen principal */
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin: 2%; /* Ajusta este valor según tus necesidades */
+}
+
+.image-container img {
+    width: 96%;
+    height: auto;
+}
+
+/* Estilo para las secciones de contenido */
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    margin: 20px auto; /* Ajusta este valor según tus necesidades */
+}
+
+.text-section {
+    flex: 1;
+    margin-right: 10px; /* Ajusta este valor según tus necesidades */
+}
+
+.image-section {
+    flex: 1;
+    margin-left: 10px; /* Ajusta este valor según tus necesidades */
+}
+
+.first-image {
+    margin-top: 50px; /* Ajusta este valor según tus necesidades */
+    align-self: flex-start;
+}
+
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 576px) {
+    .content-section {
+        flex-direction: column;
+    }
+
+    .text-section, .image-section {
+        margin: 0;
+    }
+}
+
+/*AYUDA*/
+
+h2.subtitulo {
+    margin-top: 50px; /* Ajusta este valor según tus necesidades */
+}
+
+.row {
+    margin-right: 0;
+  
+}
+
+
+
+
+
+

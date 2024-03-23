@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+</head>
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block body %}
+<body class="login-page">
+<div class="login-container">
+    <img src="{{ asset('images/tu-logo.png') }}" alt="Logo">
+    {{ form_start(form) }}
+        {{ form_label(form.username, 'Nombre de usuario:') }}
+        {{ form_widget(form.username) }}
+        {{ form_label(form.password, 'Contraseña:') }}
+        {{ form_widget(form.password) }}
+        {{ form_widget(form.next) }}
+        {{ form_widget(form.cancel) }}
+    {{ form_end(form) }}
+    <p>¿Todavía no tienes cuenta? Crea una desde <a href="{{ path('app_login2') }}">aquí</a>.</p>
+</div>
+</body>
+
+{% endblock %}
+</html>
