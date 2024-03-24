@@ -16,8 +16,7 @@ class LoginFormType extends AbstractType
         $builder
             ->add('username', TextType::class)
             ->add('password', PasswordType::class)
-            ->add('next', SubmitType::class, ['label' => 'Siguiente', 'attr' => ['class' => 'next-button']])
-            ->add('cancel', SubmitType::class, ['label' => 'Cancelar', 'attr' => ['class' => 'cancel-button']]);
+            ->add('next', SubmitType::class, ['label' => 'Siguiente', 'attr' => ['class' => 'next-button']]);
     }
 }
 ?>

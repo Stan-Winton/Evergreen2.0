@@ -36,13 +36,13 @@ class Comercios
     #[ORM\Column(length: 30)]
     private ?string $razonSocial = null;
 
-    #[ORM\OneToMany(targetEntity: usuario::class, mappedBy: 'comercios')]
+    #[ORM\OneToMany(targetEntity: Usuario::class, mappedBy: 'comercios')]
     private Collection $usuario;
 
-    #[ORM\OneToMany(targetEntity: productos::class, mappedBy: 'comercios')]
+    #[ORM\OneToMany(targetEntity: Productos::class, mappedBy: 'comercios')]
     private Collection $producto;
 
-    #[ORM\OneToMany(targetEntity: pedidos::class, mappedBy: 'comercios')]
+    #[ORM\OneToMany(targetEntity: Pedidos::class, mappedBy: 'comercios')]
     private Collection $pedido;
 
     public function __construct()
@@ -149,7 +149,7 @@ class Comercios
         return $this->usuario;
     }
 
-    public function addUsuario(usuario $usuario): static
+    public function addUsuario(Usuario $usuario): static
     {
         if (!$this->usuario->contains($usuario)) {
             $this->usuario->add($usuario);
@@ -159,7 +159,7 @@ class Comercios
         return $this;
     }
 
-    public function removeUsuario(usuario $usuario): static
+    public function removeUsuario(Usuario $usuario): static
     {
         if ($this->usuario->removeElement($usuario)) {
             // set the owning side to null (unless already changed)
@@ -179,7 +179,7 @@ class Comercios
         return $this->producto;
     }
 
-    public function addProducto(productos $producto): static
+    public function addProducto(Productos $producto): static
     {
         if (!$this->producto->contains($producto)) {
             $this->producto->add($producto);
@@ -189,7 +189,7 @@ class Comercios
         return $this;
     }
 
-    public function removeProducto(productos $producto): static
+    public function removeProducto(Productos $producto): static
     {
         if ($this->producto->removeElement($producto)) {
             // set the owning side to null (unless already changed)
@@ -209,7 +209,7 @@ class Comercios
         return $this->pedido;
     }
 
-    public function addPedido(pedidos $pedido): static
+    public function addPedido(Pedidos $pedido): static
     {
         if (!$this->pedido->contains($pedido)) {
             $this->pedido->add($pedido);

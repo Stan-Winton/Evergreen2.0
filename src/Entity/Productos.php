@@ -31,12 +31,12 @@ class Productos
     private ?Comercios $comercios = null;
 
     #[ORM\OneToOne(inversedBy: 'productos', cascade: ['persist', 'remove'])]
-    private ?categorias $categoria = null;
+    private ?Categorias $categoria = null;
 
-    #[ORM\ManyToMany(targetEntity: pedidos::class, inversedBy: 'productos')]
+    #[ORM\ManyToMany(targetEntity: Pedidos::class, inversedBy: 'productos')]
     private Collection $pedido;
 
-    #[ORM\OneToMany(targetEntity: valoraciones::class, mappedBy: 'productos')]
+    #[ORM\OneToMany(targetEntity: Valoraciones::class, mappedBy: 'productos')]
     private Collection $valoracion;
 
     public function __construct()
@@ -110,12 +110,12 @@ class Productos
         return $this;
     }
 
-    public function getCategoria(): ?categorias
+    public function getCategoria(): ?Categorias
     {
         return $this->categoria;
     }
 
-    public function setCategoria(?categorias $categoria): static
+    public function setCategoria(?Categorias $categoria): static
     {
         $this->categoria = $categoria;
 
@@ -130,7 +130,7 @@ class Productos
         return $this->pedido;
     }
 
-    public function addPedido(pedidos $pedido): static
+    public function addPedido(Pedidos $pedido): static
     {
         if (!$this->pedido->contains($pedido)) {
             $this->pedido->add($pedido);
@@ -139,7 +139,7 @@ class Productos
         return $this;
     }
 
-    public function removePedido(pedidos $pedido): static
+    public function removePedido(Pedidos $pedido): static
     {
         $this->pedido->removeElement($pedido);
 
@@ -154,7 +154,7 @@ class Productos
         return $this->valoracion;
     }
 
-    public function addValoracion(valoraciones $valoracion): static
+    public function addValoracion(Valoraciones $valoracion): static
     {
         if (!$this->valoracion->contains($valoracion)) {
             $this->valoracion->add($valoracion);
@@ -164,7 +164,7 @@ class Productos
         return $this;
     }
 
-    public function removeValoracion(valoraciones $valoracion): static
+    public function removeValoracion(Valoraciones $valoracion): static
     {
         if ($this->valoracion->removeElement($valoracion)) {
             // set the owning side to null (unless already changed)

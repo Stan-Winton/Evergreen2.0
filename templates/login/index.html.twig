@@ -17,7 +17,7 @@
         {{ form_label(form.password, 'Contraseña:') }}
         {{ form_widget(form.password) }}
         {{ form_widget(form.next) }}
-        {{ form_widget(form.cancel) }}
+        <a href="{{ path('app_home') }}" class="cancel-button">Cancelar</a>
     {{ form_end(form) }}
     <p>¿Todavía no tienes cuenta? Crea una desde <a href="{{ path('app_login2') }}">aquí</a>.</p>
 </div>
