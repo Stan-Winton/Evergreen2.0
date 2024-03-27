@@ -62,10 +62,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         $this->fecha = $fecha;
         $this->comercios = $comercios;
         $this->pedido = new ArrayCollection();
-        $this->valoracion = new ArrayCollection();
-    
-    
-       
+        $this->valoracion = new ArrayCollection();  
     }
 
     public function getId(): ?int

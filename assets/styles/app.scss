@@ -249,6 +249,21 @@ h2.subtitulo {
   
 }
 
+/*LOGIN*/
+.opaque-box {
+    background-color: rgba(255, 255, 255, 0.5); // Blanco con opacidad baja
+    border-radius: 10px; // Esquinas redondas
+    width: 100%; // Ocupa todo el ancho disponible
+    max-width: 568px; // Ancho máximo de 568px
+    height: auto; // Altura automática
+    max-height: 656px; // Altura máxima de 656px
+    margin: 0 auto; // Centra la caja en la pantalla
+
+    @media (max-width: 568px) {
+        width: 90%; // Reduce el ancho en pantallas pequeñas
+    }
+
+}
 
 
 

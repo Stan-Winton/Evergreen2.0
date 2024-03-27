@@ -1,0 +1,16 @@
+{# templates/perfil/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Perfil de {{ usuario.nombre }}</h1>
+
+    <p>Email: {{ usuario.email }}</p>
+    <p>Nombre: {{ usuario.nombre }}</p>
+    <p>Dirección: {{ usuario.direccion }}</p>
+    <p>Teléfono: {{ usuario.telefono }}</p>
+    <p>Fecha de nacimiento: {{ usuario.fecha|date('Y-m-d') }}</p>
+
+    <a href="{{ path('perfil_editar') }}">Editar perfil</a>
+    <a href="{{ path('app_logout') }}">Cerrar sesión</a>
+{% endblock %}

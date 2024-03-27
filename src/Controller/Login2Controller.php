@@ -22,10 +22,10 @@ class Login2Controller extends AbstractController
 
             if ($tipo_usuario === 'particular') {
                 // Redirigir a la ruta para usuarios particulares
-                return $this->redirectToRoute('ruta_particular');
+                return $this->redirectToRoute('registro');
             } elseif ($tipo_usuario === 'empresa') {
                 // Redirigir a la ruta para empresas
-                return $this->redirectToRoute('ruta_empresa');
+                return $this->redirectToRoute('registro_empresa');
             }
         }
 

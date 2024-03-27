@@ -2,28 +2,26 @@
 
 namespace App\Form;
 
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\ButtonType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use App\Entity\Usuario;
+use App\Entity\Comercios;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 
-class RegistroType extends AbstractType
+class RegistroEmpresaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nombre')
+            ->add('nombreComercio')
             ->add('email')
             ->add('password')
-            ->add('direccion')
+            ->add('CIF')
+            ->add('descripcion')
+            ->add('direccionComercio')
             ->add('telefono')
-            ->add('fecha', DateType::class, [
-                'label' => 'Fecha de nacimiento',
-                'mapped' =>false,
-            ])
+            ->add('razonSocial')
             ->add('siguiente', SubmitType::class, ['label' => 'Siguiente'])
             ->add('cancelar', ButtonType::class, ['label' => 'Cancelar', 'attr' => ['onclick' => 'history.back()']]);
         
@@ -32,7 +30,7 @@ class RegistroType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Usuario::class,
+            'data_class' => Comercios::class,
         ]);
     }
 }

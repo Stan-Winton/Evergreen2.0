@@ -2,30 +2,28 @@
 
 namespace App\Controller;
 
-use App\Entity\Usuario;
-use App\Form\RegistroType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Comercios;
+use App\Form\RegistroEmpresaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class RegistroController extends AbstractController
+class RegistroEmpresaController extends AbstractController
 {
     private $em;
 
     public function __construct(EntityManagerInterface $em)
-    
     {
         $this->em = $em;
     }
-
-    #[Route('/registro', name: 'registro')]
-    public function registro(Request $request, UserPasswordHasherInterface $passwordHasher): Response
+    #[Route('/registro_empresa', name: 'registro_empresa')]
+    public function registro_empresa(Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
-        $usuario = new Usuario();
-        $registroForm = $this->createForm(RegistroType::class, $usuario);
+        $usuario = new Comercios();
+        $registroForm = $this->createForm(RegistroEmpresaType::class, $usuario);
         $registroForm->handleRequest($request);
         if ($registroForm->isSubmitted() && $registroForm->isValid()) {
             $plaintextPassword = $registroForm->get('password')->getData();
@@ -35,17 +33,13 @@ class RegistroController extends AbstractController
                 $plaintextPassword
             );
             $usuario->setPassword($hashedPassword);
-            $usuario->setRoles(['ROLE_USER']);
-            $fecha = $registroForm->get('fecha')->getData();
-            $usuario->setfecha($fecha);
+            $usuario->setROLES(['ROLE_USER']);
             $this->em->persist($usuario);
             $this->em->flush();
             return $this->redirectToRoute('app_home');
-
         }
-
-        return $this->render('registro/index.html.twig', [
-            'registroForm' => $registroForm->createView()
+        return $this->render('registro_empresa/index.html.twig', [
+        'registroForm' => $registroForm->createView()
         ]);
     }
 }

@@ -47,7 +47,11 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                <button class="btn btn-outline-success" type="button" onclick="location.href='{{ path('app_login') }}'">Iniciar sesión</button>
+                {% if app.user %}
+                    <button class="btn btn-outline-success" type="button" onclick="location.href='{{ path('perfil') }}'">Mi perfil</button>
+                {% else %}
+                <button class="btn btn-outline-success" type="button" onclick="location.href='{{ path('login') }}'">Iniciar sesión</button>
+                {% endif %}
                 <a class="btn btn-outline-primary" href="#">
                     <i class="fas fa-shopping-cart"></i>
                 </a>

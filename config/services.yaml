@@ -19,6 +19,12 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+            - '../src/Security/AppUserProvider.php' # Exclude AppUserProvider from automatic service registration
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # Explicitly register AppUserProvider as a service
+    App\Security\AppUserProvider:
+        arguments:
+            $entityManager: '@Doctrine\ORM\EntityManagerInterface'
