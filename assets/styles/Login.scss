@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.centered-form {
+    width: 568px;
+    height: 656px;
+    background-color:  rgba(255, 255, 255, 0.8);
+    margin: 184px 650px;
+    border-radius: 20px; /* Adjust this value to change the roundness of the borders */
+}
+
+img {
+    width: 335px;
+    height: 157px;
+    margin: 32px 116px;
+    padding-right: 50px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label, input[type="text"], input[type="password"] {
+    width: 424px;
+    margin: 0 72px;
+}
+
+input[type="text"], input[type="password"] {
+    height: 30px; /* Adjust this value to change the height of the input fields */
+    border: 2px solid lightgray; /* This gives the input fields a light gray border */
+    border-radius: 5px; /* This rounds the corners of the input fields */
+    margin-bottom: 20px; /* Adjust this value to change the space between the input fields */    
+}
+
+button {
+    width: 424px;
+    height: 40px;;
+    background-color: #090a09; /* This sets the background color of the submit button */
+    color: white; /* This sets the text color of the submit button */
+    border-radius: 10px;
+    border: none;
+    
+}
+
+.btn {
+    width: 424px;
+    height: 40px;
+    background-color: #909090; /* This sets the background color of the submit button */
+    color: white; /* This sets the text color of the submit button */
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    text-align: center; /* This centers the text horizontally */
+    line-height: 40px; /* This centers the text vertically */
+    text-decoration: none;;
+}
+
+p {
+    margin: 20px 72px 20px 120px;
+}
+
+
+input, button, label, p {
+    font-family: 'Montserrat', sans-serif;
+}
+
