@@ -27,17 +27,20 @@ class Productos
     #[ORM\Column]
     private ?int $stock = null;
 
-    #[ORM\ManyToOne(inversedBy: 'producto')]
-    private ?Comercios $comercios = null;
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $tipo_producto = null;
 
-    #[ORM\OneToOne(inversedBy: 'productos', cascade: ['persist', 'remove'])]
-    private ?Categorias $categoria = null;
+    #[ORM\ManyToOne(inversedBy: 'productos')]
+    private ?Comercios $comercios = null;
 
     #[ORM\ManyToMany(targetEntity: Pedidos::class, inversedBy: 'productos')]
     private Collection $pedido;
 
     #[ORM\OneToMany(targetEntity: Valoraciones::class, mappedBy: 'productos')]
     private Collection $valoracion;
+
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $imagen = null;
 
     public function __construct()
     {
@@ -98,6 +101,18 @@ class Productos
         return $this;
     }
 
+    public function getTipoProducto(): ?string
+    {
+        return $this->tipo_producto;
+    }
+
+    public function setTipoProducto(?string $tipo_producto): self
+    {
+        $this->tipo_producto = $tipo_producto;
+
+        return $this;
+    }
+
     public function getComercios(): ?Comercios
     {
         return $this->comercios;
@@ -106,18 +121,6 @@ class Productos
     public function setComercios(?Comercios $comercios): static
     {
         $this->comercios = $comercios;
-
-        return $this;
-    }
-
-    public function getCategoria(): ?Categorias
-    {
-        return $this->categoria;
-    }
-
-    public function setCategoria(?Categorias $categoria): static
-    {
-        $this->categoria = $categoria;
 
         return $this;
     }
@@ -172,6 +175,18 @@ class Productos
                 $valoracion->setProductos(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(?string $imagen): static
+    {
+        $this->imagen = $imagen;
 
         return $this;
     }

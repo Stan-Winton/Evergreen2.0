@@ -7,18 +7,19 @@
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
-</head>
 <body style="background-image: url('{{ asset('images/fondoLogin.svg') }}'); background-size: cover;">
 {% block body %}
-<body class="login-page">
-<div class="login-container">
-    <img src="{{ asset('images/logo.svg') }}" alt="Logo">
-    {{ form_start(form) }}
-        {{ form_row(form.tipo_usuario) }}
-        {{ form_row(form.save) }}
-    {{ form_end(form) }}
-    <input type="button" value="Cancelar" style="background-color: gray; color: white;" onclick="window.location.href='{{ path('login') }}'">
+<div class="login2-container">
+    <div class="login2-box">
+        <img src="{{ asset('images/logo.svg') }}" alt="Logo">
+        <h2 class="form-title">¿Eres particular o una empresa?</h2>
+        {{ form_start(form) }}
+            {{ form_widget(form.tipo_usuario) }}
+            {{ form_row(form.save, {'attr': {'class': 'button next'}}) }}
+        {{ form_end(form) }}
+        <input type="button" value="Cancelar" class="button cancel" onclick="window.location.href='{{ path('login') }}'">
+    </div>
 </div>
-</body>
 {% endblock %}
+</body>
 </html>

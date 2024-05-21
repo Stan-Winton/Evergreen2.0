@@ -5,22 +5,23 @@
 {% block body %}
 
 
-<h1 class="titulo-24">Trabaja con nosotros</h1>
-<h2 class="subtitulo">Si no encuentras tu pregunta, llámanos al 961 234 567</h2>
+<h1 class="titulo-ayuda">Ayuda y atención al cliente</h1>
+<h2 class="subtitulo">Si no encuentras tu pregunta, llámanos al <span class="telefono">961 234 567</span></h2>
 
 <!--Envios-->
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-12 col-md-6">
+      <h2 id="envios">Envíos</h2>
       <div class="accordion" id="acordeonEnvios">
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
               <strong>1. He recibido un producto erróneo o dañado, ¿qué hago?</strong>
             </button>
           </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
               Si recibes un producto dañado debido a su transporte o distinto al que habías pedido, deberás contactar con nosotros a través del teléfono 961 234 567 o por correo atencioncliente@evergreen.es para poder solucionar el incidente cuanto antes mediante la reposición del mismo o su abono.
               En el caso que el producto estuviera defectuoso se procederá a su reparación, sustitución o devolución a través de Evergreen.
@@ -81,15 +82,16 @@
       </div>
     </div>
     <!--Pedidos-->
-    <div class="col-md-6">
+    <div class="col-12 col-md-6">
+      <h2 id="pedidos">Pedidos</h2>
       <div class="accordion" id="acordeonPedidos">
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-              <strong>1. ¿Cuáles son los métodos de pago?</strong>
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <strong>1. ¿Cuáles son los  métodos de pago?</strong>
             </button>
           </h2>
-          <div id="collapseSix" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
               Se puede pagar con tarjeta de crédito, PayPal, transferencia bancaria y Bizum.
             </div>
@@ -155,162 +157,140 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+<!--Productos-->
+
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <h2 id="productos">Productos</h2>
+      <div class="accordion" id="acordeonProductos">
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
-              <strong>7. He pagado con tarjeta y me ha dado error el pago. ¿Se me habrá cobrado dos veces?</strong>
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+              <strong>1. ¿Qué pasa si no encuentro en la web un producto que he visto en una tienda física?</strong>
             </button>
           </h2>
-          <div id="collapseTwelve" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div id="collapseFourteen" class="accordion-collapse collapse" data-bs-parent="#acordeonProductos">
             <div class="accordion-body">
-              No te preocupes, escríbenos a info.web@evergreen.es o llama al teléfono 961 234 567 para consultarlo. Si fuera así, te devolvemos al instante el importe de tu pago duplicado.
-            </div>    
+              ¡No te preocupes! Mándanos un correo a info.web@evergreen.es informando del producto que deseas y te informaremos acerca de su situación.
+            </div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
-              <strong>8. ¿Qué puedo hacer si he tenido un problema con el pago con tarjeta o PayPal y no puedo finalizar mi pedido?</strong>
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+              <strong>2. ¿Puedo comprar un producto agotado en la web?</strong>
             </button>
           </h2>
-          <div id="collapseThirteen" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div id="collapseFifteen" class="accordion-collapse collapse" data-bs-parent="#acordeonProductos">
             <div class="accordion-body">
-              No te preocupes, escríbenos a info.web@evergreen.es o llama al teléfono 961 234 567 y buscamos una solución. También puedes escoger el pago con transferencia bancaria.
+              En el caso de los productos que aparecen como agotados, éstos no se pueden adquirir a través de la web ya que son artículos de los que no tenemos disponibilidad. No obstante, nos lo puedes hacer saber enviándonos un correo a info.web@evergreen.es y te avisaremos en cuento el artículo esté disponible.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
+              <strong>3. ¿Puedo adquirir algún producto que no está en la web?</strong>
+            </button>
+          </h2>
+          <div id="collapseSixteen" class="accordion-collapse collapse" data-bs-parent="#acordeonProductos">
+            <div class="accordion-body">
+            Si estás interesado en un producto que no tenemos en nuestro catálogo, te puedes poner en contacto con nosotros a través del correo electrónico info.web@evergreen.es y solicitárnoslo. Nosotros lo tramitaremos con el fabricante y te daremos una respuesta lo antes posible indicándote toda la información sobre este artículo.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen">
+              <strong>4. ¿Cómo puedo saber las características de un producto?</strong>
+            </button>
+          </h2>
+          <div id="collapseSeventeen" class="accordion-collapse collapse" data-bs-parent="#acordeonProductos">
+            <div class="accordion-body">
+              Accediendo a la ficha del producto puedes consultar todas las características y el precio de cada artículo.
+
+              En el caso de no encontrar una información específica, puedes solicitárnosla. Para ello, puedes enviarnos un e-mail al correo info.web@evergreen.es
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-
-
-   
-      
-
-  
-
-
-<!--Productos-->
-
-<div class="accordion" id="acordeonProductos">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="true" aria-controls="collapseFourteen">
-        <strong>1. ¿Qué pasa si no encuentro en la web un producto que he visto en una tienda física?</strong>
-      </button>
-    </h2>
-    <div id="collapseFourteen" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-       ¡No te preocupes! Mándanos un correo a info.web@evergreen.es informando del producto que deseas y te informaremos acerca de su situación.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
-        <strong>2. ¿Puedo comprar un producto agotado en la web?</strong>
-      </button>
-    </h2>
-    <div id="collapseFifteen" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        En el caso de los productos que aparecen como agotados, éstos no se pueden adquirir a través de la web ya que son artículos de los que no tenemos disponibilidad. No obstante, nos lo puedes hacer saber enviándonos un correo a info.web@evergreen.es y te avisaremos en cuento el artículo esté disponible.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
-        <strong>3. ¿Puedo adquirir algún producto que no está en la web?</strong>
-      </button>
-    </h2>
-    <div id="collapseSixteen" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-      Si estás interesado en un producto que no tenemos en nuestro catálogo, te puedes poner en contacto con nosotros a través del correo electrónico info.web@evergreen.es y solicitárnoslo. Nosotros lo tramitaremos con el fabricante y te daremos una respuesta lo antes posible indicándote toda la información sobre este artículo.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen">
-        <strong>4. ¿Cómo puedo saber las características de un producto?</strong>
-      </button>
-    </h2>
-    <div id="collapseSeventeen" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        Accediendo a la ficha del producto puedes consultar todas las características y el precio de cada artículo.
-
-En el caso de no encontrar una información específica, puedes solicitárnosla. Para ello, puedes enviarnos un e-mail al correo info.web@hevergreen.es
-    </div>
-  </div>
-</div>
 
 <!--Cuenta-->
 
-<div class="accordion" id="acordeonCuenta">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEighteen" aria-expanded="true" aria-controls="collapseEighteen">
-        <strong>1. ¿Cómo creo una cuenta de usuario?</strong>
-      </button>
-    </h2>
-    <div id="collapseEighteen" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-       Para poder realizar tus compras de una forma mucho más fácil y rápida puedes crear tu cuenta en Evergreen. Es muy fácil y rápido. Entra en la página de “Crear una cuenta”, pinchando en el icono que aparece en la barra superior de "Mi cuenta". Crea una cuenta. Introduce tu dirección de correo electrónico y tus datos personales. ¡Ya está hecho!
+    <div class="col-12 col-md-6">
+      <h2 id="cuenta">Cuenta</h2>
+      <div class="accordion" id="acordeonCuenta">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEighteen" aria-expanded="false" aria-controls="collapseEighteen">
+              <strong>1. ¿Cómo creo una cuenta de usuario?</strong>
+            </button>
+          </h2>
+          <div id="collapseEighteen" class="accordion-collapse collapse" data-bs-parent="#acordeonCuenta">
+            <div class="accordion-body">
+              Para poder realizar tus compras de una forma mucho más fácil y rápida puedes crear tu cuenta en Evergreen. Es muy fácil y rápido. Entra en la página de “Crear una cuenta”, pinchando en el icono que aparece en la barra superior de "Mi cuenta". Crea una cuenta. Introduce tu dirección de correo electrónico y tus datos personales. ¡Ya está hecho!
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNineteen" aria-expanded="false" aria-controls="collapseNineteen">
+              <strong>2. ¿Puedo modificar mi contraseña?</strong>
+            </button>
+          </h2>
+          <div id="collapseNineteen" class="accordion-collapse collapse" data-bs-parent="#acordeonCuenta">
+            <div class="accordion-body">
+              Sí, puedes modificar la contraseña dentro de "Mi cuenta > Mis datos" marcando la casilla "Cambiar la contraseña" e introduciendo la contraseña actual y la nueva.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwenty" aria-expanded="false" aria-controls="collapseTwenty">
+              <strong>3. ¿Qué pasa si olvido mi contraseña?</strong>
+            </button>
+          </h2>
+          <div id="collapseTwenty" class="accordion-collapse collapse" data-bs-parent="#acordeonCuenta">
+            <div class="accordion-body">
+              Puedes pedir que te enviemos un email para reiniciar tu contraseña aquí. Si estás registrado como cliente web, te llegará un email con las instrucciones para cambiar tu contraseña.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwentyone" aria-expanded="false" aria-controls="collapseTwentyone">
+              <strong>4. ¿Cómo puedo salir de mi cuenta?</strong>
+            </button>
+          </h2>
+          <div id="collapseTwentyone" class="accordion-collapse collapse" data-bs-parent="#acordeonCuenta">
+            <div class="accordion-body">
+              Para salir de la cuenta, tienes que pinchar en el icono de “Mi cuenta”, en la parte superior derecha. Una vez ahí, vuelves a pinchar y aparecerá “Cerrar sesión”.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwentytwo" aria-expanded="false" aria-controls="collapseTwentytwo">
+              <strong>5. Al registrarme en la web, ¿recibiré correos vía email?</strong>
+            </button>
+          </h2>
+          <div id="collapseTwentytwo" class="accordion-collapse collapse" data-bs-parent="#acordeonCuenta">
+            <div class="accordion-body">
+              Sólo si lo deseas, al registrarte en nuestra página, tienes la opción de suscribirte a nuestro newsletter y la recepción de notificaciones por nuestra parte. Si no marcas estas opciones, no recibirás nuestras ofertas y noticias por mail. No obstante, podrás darte de baja y modificar tu configuración sobre notificaciones en tu cuenta (en el apartado "Mis datos") en todo momento.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNineteen" aria-expanded="false" aria-controls="collapseNineteen">
-        <strong>2. ¿Puedo modificar mi contraseña?</strong>
-      </button>
-    </h2>
-    <div id="collapseNineteen" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-       Sí, puedes modificar la contraseña dentro de "Mi cuenta > Mis datos" marcando la casilla "Cambiar la contraseña" e introduciendo la contraseña actual y la nueva.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwenty" aria-expanded="false" aria-controls="collapseTwenty">
-        <strong>3. ¿Qué pasa si olvido mi contraseña?</strong>
-      </button>
-    </h2>
-    <div id="collapseTwenty" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-      Puedes pedir que te enviemos un email para reiniciar tu contraseña aquí. Si estás registrado como cliente web, te llegará un email con las instrucciones para cambiar tu contraseña.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwentyone" aria-expanded="false" aria-controls="collapseTwentyone">
-        <strong>4. ¿Cómo puedo salir de mi cuenta?</strong>
-      </button>
-    </h2>
-    <div id="collapseTwentyone" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        Para salir de la cuenta, tienes que pinchar en el icono de “Mi cuenta”, en la parte superior derecha. Una vez ahí, vuelves a pinchar y aparecerá “Cerrar sesión”.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwentytwo" aria-expanded="false" aria-controls="collapseTwentytwo">
-        <strong>5. Al registrarme en la web, ¿recibiré correos vía email?</strong>
-      </button>
-    </h2>
-    <div id="collapseTwentytwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-       Sólo si lo deseas, al registrarte en nuestra página, tienes la opción de suscribirte a nuestro newsletter y la recepción de notificaciones por nuestra parte. Si no marcas estas opciones, no recibirás nuestras ofertas y noticias por mail. No obstante, podrás darte de baja y modificar tu configuración sobre notificaciones en tu cuenta (en el apartado "Mis datos") en todo momento.
-      </div>
-    </div>
-  </div>
+  </div>  
 </div>
 
+<div class="espacio-footer"></div>
 
 
 {% endblock %}

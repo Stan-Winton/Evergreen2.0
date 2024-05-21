@@ -51,7 +51,10 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Valoraciones::class, mappedBy: 'usuario')]
     private Collection $valoracion;
 
-    public function __construct($id = null, $email = null, $password = null, $nombre = null, $direccion = null, $telefono = null, $fecha = null, $comercios = null, $pedido = null, $valoracion = null)
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $foto = null;
+
+    public function __construct($id = null, $email = null, $password = null, $nombre = null, $direccion = null, $telefono = null, $fecha = null, $comercios = null, $pedido = null, $valoracion = null, $foto = null)
     {
         $this->id = $id;
         $this->email = $email;
@@ -63,6 +66,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         $this->comercios = $comercios;
         $this->pedido = new ArrayCollection();
         $this->valoracion = new ArrayCollection();  
+        $this->foto = $foto;
     }
 
     public function getId(): ?int
@@ -251,6 +255,18 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
                 $valoracion->setUsuario(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFoto(): ?string
+    {
+        return $this->foto;
+    }
+
+    public function setFoto(?string $foto): self
+    {
+        $this->foto = $foto;
 
         return $this;
     }

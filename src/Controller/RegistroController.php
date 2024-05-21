@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Entity\Usuario;
@@ -16,7 +15,6 @@ class RegistroController extends AbstractController
     private $em;
 
     public function __construct(EntityManagerInterface $em)
-    
     {
         $this->em = $em;
     }
@@ -26,8 +24,19 @@ class RegistroController extends AbstractController
     {
         $usuario = new Usuario();
         $registroForm = $this->createForm(RegistroType::class, $usuario);
+
         $registroForm->handleRequest($request);
+
         if ($registroForm->isSubmitted() && $registroForm->isValid()) {
+            $email = $registroForm->get('email')->getData();
+
+            // Comprobar si el correo electrónico ya existe
+            $existingUser = $this->em->getRepository(Usuario::class)->findOneBy(['email' => $email]);
+            if ($existingUser) {
+                $this->addFlash('error', 'Este correo electrónico ya está en uso.');
+                return $this->redirectToRoute('registro');
+            }
+
             $plaintextPassword = $registroForm->get('password')->getData();
 
             $hashedPassword = $passwordHasher->hashPassword(
@@ -40,8 +49,8 @@ class RegistroController extends AbstractController
             $usuario->setfecha($fecha);
             $this->em->persist($usuario);
             $this->em->flush();
-            return $this->redirectToRoute('app_home');
 
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('registro/index.html.twig', [

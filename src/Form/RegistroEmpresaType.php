@@ -22,6 +22,7 @@ class RegistroEmpresaType extends AbstractType
             ->add('direccionComercio')
             ->add('telefono')
             ->add('razonSocial')
+            ->add('codigoPostal')
             ->add('siguiente', SubmitType::class, ['label' => 'Siguiente'])
             ->add('cancelar', ButtonType::class, ['label' => 'Cancelar', 'attr' => ['onclick' => 'history.back()']]);
         

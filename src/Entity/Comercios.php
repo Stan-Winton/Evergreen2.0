@@ -44,16 +44,19 @@ class Comercios implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 30)]
     private ?string $razonSocial = null;
 
+    #[ORM\Column(length: 5)]
+    private ?string $codigoPostal = null;
+
     #[ORM\OneToMany(targetEntity: Usuario::class, mappedBy: 'comercios')]
     private Collection $usuario;
 
     #[ORM\OneToMany(targetEntity: Productos::class, mappedBy: 'comercios')]
-    private Collection $producto;
+    private Collection $productos;
 
     #[ORM\OneToMany(targetEntity: Pedidos::class, mappedBy: 'comercios')]
     private Collection $pedido;
 
-    public function __construct($password= null, $email= null, $CIF= null, $nombreComercio = null, $descripcion = null, $direccionComercio = null, $telefono = null, $razonSocial = null)
+    public function __construct($password= null, $email= null, $CIF= null, $nombreComercio = null, $descripcion = null, $direccionComercio = null, $telefono = null, $razonSocial = null, $codigoPostal = null)
     {
         $this->password = $password;
         $this->email = $email;
@@ -63,6 +66,7 @@ class Comercios implements UserInterface, PasswordAuthenticatedUserInterface
         $this->direccionComercio = $direccionComercio;
         $this->telefono = $telefono;
         $this->razonSocial = $razonSocial;
+        $this->codigoPostal = $codigoPostal;
         $this->usuario = new ArrayCollection();
         $this->producto = new ArrayCollection();
         $this->pedido = new ArrayCollection();
@@ -181,6 +185,19 @@ class Comercios implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRazonSocial(string $razonSocial): static
     {
         $this->razonSocial = $razonSocial;
+
+        return $this;
+    }
+
+    
+    public function getCodigoPostal(): ?string
+    {
+        return $this->codigoPostal;
+    }
+
+    public function setCodigoPostal(string $codigoPostal): static
+    {
+        $this->codigoPostal = $codigoPostal;
 
         return $this;
     }

@@ -1,0 +1,72 @@
+{% extends 'base2.html.twig' %}
+
+{% block body %}
+<div class="container-inicio">
+    <h2 class="seccion"> Productos</h2>
+    <section id="productos-modal">
+        {% for producto in productos %}
+            <div class="producto">
+            <img src="{{ asset('uploads/' ~ producto.imagen) }}" alt="{{ producto.nombre }}">
+                <h3>{{ producto.nombre }}</h3>
+                <p>{{ producto.descripcion }}</p>
+                <p>{{ producto.precio }} Euros</p>
+                <p>Stock: {{ producto.stock }}</p>
+                
+            </div>
+        {% else %}
+            <p>No hay productos disponibles.</p>
+        {% endfor %}
+    </section>
+    <button type="button" class="btn btn-primary subir-productos" data-bs-toggle="modal" data-bs-target="#subirProductoModal">
+        Subir productos
+    </button>
+
+    <h2 class="seccion">Pedidos</h2>
+    <section id="pedidos">
+        <!-- Aquí se mostrarán los pedidos -->
+    </section>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="subirProductoModal" tabindex="-1" aria-labelledby="subirProductoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="subirProductoModalLabel">Subir producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí puedes poner un formulario para ingresar los datos del producto -->
+                <form id="productoForm" action="{{ path('inicio_empresa_post') }}" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="productoImagen" class="form-label">Imagen del producto</label>
+        <input type="file" class="form-control" id="productoImagen" name="productoImagen">
+    </div>
+    <div class="mb-3">
+        <label for="productoNombre" class="form-label">Nombre del producto</label>
+        <input type="text" class="form-control" id="productoNombre" name="productoNombre">
+    </div>
+    <div class="mb-3">
+        <label for="productoDescripcion" class="form-label">Descripción del producto</label>
+        <textarea class="form-control" id="productoDescripcion" name="productoDescripcion"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="productoTipo" class="form-label">Tipo de producto</label>
+        <input type="text" class="form-control" id="productoTipo" name="productoTipo">
+</div>
+    <div class="mb-3">
+        <label for="productoPrecio" class="form-label">Precio del producto</label>
+        <input type="number" class="form-control" id="productoPrecio" name="productoPrecio">
+    </div>
+    <div class="mb-3">
+        <label for="productoStock" class="form-label">Cantidad de stock</label>
+        <input type="number" class="form-control" id="productoStock" name="productoStock">
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar producto</button>
+</form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

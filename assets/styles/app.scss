@@ -39,18 +39,27 @@
     } 
 }  
 
+
+
+
+
+
 /*FOOTER*/
 #pie {
+    flex-shrink: 0;
     background-color: green; // Cambia el color de fondo a verde
     color: white; // Cambia el color de la letra a blanco
     text-align: center; // Centra el contenido del pie de página
     background-repeat: no-repeat;
     background-position: center;
-    position: fixed; // Fija el pie de página en su posición
-    bottom: 0; // Asegura que el pie de página esté en la parte inferior de la página
     width: 100%; // Hace que el pie de página tenga el ancho completo
 }
-
+//HOME 
+.content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 /*CAROUSEL*/
 .carousel-inner {
     height: 50vh; // Ajusta este valor según tus necesidades
@@ -187,6 +196,7 @@ h1.titulo-24, .mb-3.mb-md-0 p {
 .image-section {
     flex: 1;
     margin-left: 10px; /* Ajusta este valor según tus necesidades */
+    margin-bottom: 100px;
 }
 
 /*CONOCENOS*/
@@ -244,26 +254,500 @@ h2.subtitulo {
     margin-top: 50px; /* Ajusta este valor según tus necesidades */
 }
 
+.container {
+    position: relative;
+  }
+
 .row {
     margin-right: 0;
   
 }
 
-/*LOGIN*/
-.opaque-box {
-    background-color: rgba(255, 255, 255, 0.5); // Blanco con opacidad baja
-    border-radius: 10px; // Esquinas redondas
-    width: 100%; // Ocupa todo el ancho disponible
-    max-width: 568px; // Ancho máximo de 568px
-    height: auto; // Altura automática
-    max-height: 656px; // Altura máxima de 656px
-    margin: 0 auto; // Centra la caja en la pantalla
+#acordeonPedidos, #acordeonProductos {
+    margin-bottom: 35px; // Ajusta este valor según tus necesidades
+}
 
-    @media (max-width: 568px) {
-        width: 90%; // Reduce el ancho en pantallas pequeñas
+.titulo-ayuda, .subtitulo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 50px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-left: 0;
+}
+
+.titulo-ayuda {
+    margin-top: 50px;
+}
+
+.subtitulo {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+    .titulo-ayuda, .subtitulo {
+        text-align: left;
     }
 
+    .titulo-ayuda {
+        margin-left: 58px;
+    }
+
+    .subtitulo {
+        margin-left: 213px;
+    }
 }
+.telefono {
+    color: #5C9738;
+}
+
+#envios,  #pedidos, #productos, #cuenta {
+
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: #5C9738;
+}
+//COMPRA
+.header-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 59px;
+    margin-top: 63px;
+}
+
+.mapa {
+    width: 1440px;
+    height: 732px;
+    margin-top: 126px;
+    margin-bottom: 21px;
+}
+
+
+.caja {
+    position: absolute;
+    left: 0;
+    top: 250px;
+    width: 340px;
+    height: 620px;
+    background-color: white;
+}
+
+.titulo-caja {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.titulo-caja:first-of-type {
+    margin-bottom: 0; /* Ajusta este valor según tus necesidades */
+}
+
+.codigo-postal {
+    margin-bottom: 16px;;
+}
+
+.btn-buscar {
+    width: 250px;
+    background-color: green;
+}
+
+.titulo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .caja {
+        position: static;
+        width: 100%;
+    }
+}
+
+#error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#codigo-tienda {
+    margin-top: 20px;
+}
+
+
+/*LOGIN*/
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+}
+
+.espacio-footer {
+    margin-top: 70px;
+}
+
+.login-box {
+    width: 568px;
+    height: 656px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 116px;
+    box-sizing: border-box;
+}
+
+.login-box img {
+    width: 335px;
+    height: 157px;
+}
+
+.login-box .input-field {
+    width: 424px;
+    height: 50px; /* Reemplaza 'hug' con un valor válido */
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.login-box .input-field input {
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    flex: 1;
+}
+
+.login-box .input-field label {
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 10px;
+}
+
+.login-box .button {
+    width: 424px;
+    height: 50px; /* Reemplaza 'hug' con un valor válido */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    border: none;
+}
+
+.login-box .button.next {
+    background-color: #5C9738
+}
+
+.login-box .button.cancel {
+    background-color: #909090;
+}
+
+.login-box p {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .login-box {
+        width: 90%;
+        padding: 32px 10px;
+    }
+
+    .login-box img {
+        width: 80%;
+    }
+
+    .login-box .input-field,
+    .login-box .button {
+        width: 100%;
+    }
+}
+
+/*login2*/
+
+.login2-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login2-box {
+    width: 568px;
+    height: 584px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 116px;
+    box-sizing: border-box;
+}
+
+.login2-box img {
+    width: 335px;
+    height: 157px;
+    margin: 0 auto;
+}
+
+.login2-box .form-title {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif; // Añade esta línea
+}
+
+.login2-box form div {
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.login2-box form div input[type="radio"] {
+    margin: 0 10px;
+}
+
+.login2-box .button {
+    width: 424px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    border: none;
+}
+
+.login2-box .button.next {
+    background-color: #5C9738;
+    font-size: 16px;
+}
+
+.login2-box .button.cancel {
+    background-color: #909090;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .login2-box {
+        width: 90%;
+        padding: 32px 10px;
+    }
+
+    .login2-box img {
+        width: 80%;
+    }
+
+    .login2-box .button {
+        width: 100%;
+    }
+}
+
+
+
+/*REGISTRO*/
+
+.form-container {
+    width: 568px;
+    height: 704px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    margin: 0 auto;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding-top: 20px;
+}
+
+.form-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px; /* Agrega un margen entre el título y el formulario */
+}
+
+.form-container {
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        max-width: 568px;
+        margin-top: 40px; /* Mueve el formulario más arriba */
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    select,
+    input[type="date"] { /* Asegura que el campo de fecha tenga el mismo estilo */
+        width: 100%;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 15px;
+
+        &:last-of-type {
+            margin-bottom: 30px; /* Añade un margen adicional al último campo */
+        }
+    }
+
+    .form-button {
+        width: 435px;
+        height: auto;
+        margin-right: 16px; /* Agrega un margen a la derecha de cada botón */
+        margin-bottom: 30px; /* Agrega un margen en la parte inferior de los botones */
+        font-family: 'Montserrat', sans-serif; /* Establece la fuente de los botones a Montserrat */
+    }
+
+    .form-button + .form-button {
+        margin-left: 16px; /* Agrega un margen a la izquierda del segundo botón */
+    }
+
+    .btn-cancel {
+        width: 435px;
+        font-family: 'Montserrat', sans-serif;
+        border: none;
+        border-radius: 10px;
+        background-color: #909090;
+        color:white;
+    }
+
+    @media (max-width: 600px) {
+        form {
+            padding: 16px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        select,
+        input[type="date"] {
+            width: 100%;
+        }
+    }
+}
+
+//Perfil
+
+.image-placeholder {
+    width: 172px;
+    height: 172px;
+    border: 1px solid #ccc;
+    background-color: #ccc; /* This will make the background color gray */
+    border-radius: 50%; /* This will make the placeholder round */
+    overflow: hidden; /* This will ensure the image does not exceed the round placeholder */
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will ensure the image covers the entire placeholder */
+}
+
+.nav-item-custom {
+    margin: 0 200px 0 50px;
+}
+
+//Inicio Empresa
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container-inicio {
+    position: relative;
+    flex: 1;
+}
+
+.subir-productos {
+    position: absolute;
+    top: 64px;
+    right: 44px;
+    width: 176px;
+    background-color: green;
+}
+
+.seccion {
+    position: relative; /* Permite posicionar el título en relación a su contenedor más cercano con posición relativa */
+    top: 64px; /* Mueve el título 64px hacia abajo desde la parte superior del contenedor */
+    padding-left: 95px; /* Mueve el título 44px hacia la derecha desde la parte izquierda del contenedor */
+    font-family: 'Montserrat', sans-serif; /* Cambia la fuente a Montserrat */
+    font-size: 24px; /* Cambia el tamaño de la fuente a 24px */
+    font-weight: bold; /* Hace la fuente negrita */
+}
+
+#productos-modal {
+    display: flex; /* Establece el contenedor de productos como un contenedor flexible */
+    flex-wrap: wrap; /* Permite que los productos se envuelvan a la siguiente línea si no caben en una sola */
+    justify-content: space-between; /* Distribuye el espacio restante entre los productos */
+    margin-top: 100px;
+}
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    width: 18%; /* Establece el ancho del producto al 18% del contenedor padre para que quepan 5 en una fila */
+    margin-left: 115px;
+}
+
+.producto img {
+    max-width: 80%; /* Establece el ancho máximo de la imagen al 100% del producto */
+    height: auto; /* Establece la altura de la imagen a auto para mantener las proporciones */
+    margin-bottom: auto;
+    /* Resto de las propiedades... */
+}
+
+.producto h3 {
+    font-family: 'Montserrat', sans-serif; /* Cambia la fuente a Montserrat */
+    color: black;
+    font-size: 20px; /* Cambia el tamaño de la fuente a 18px */
+    font-weight: bold; /* Hace que el texto sea negrita */
+}
+
+.producto p {
+    color: green; /* Cambia el color del texto a negro */
+    font-family: 'Montserrat', sans-serif; /* Cambia la fuente a Montserrat */
+    font-size: 14px; /* Cambia el tamaño de la fuente a 14px */
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

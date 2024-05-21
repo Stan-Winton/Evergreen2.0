@@ -1,0 +1,19 @@
+{% extends 'base2.html.twig' %}
+
+{% block body %}
+    <h2 class="seccion">Mis productos</h2>
+    <div id="productos-modal">
+        {% for producto in productos %}
+            <div class="producto">
+                <img src="{{ asset('uploads/' ~ producto.imagen) }}" alt="{{ producto.nombre }}">
+                <h3>{{ producto.nombre }}</h3>
+                <p>{{ producto.descripcion }}</p>
+                <p>{{ producto.precio }} Euros</p>
+                <p>Stock: {{ producto.stock }}</p>      
+            </div>
+        {% else %}
+            <p>No hay productos disponibles.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

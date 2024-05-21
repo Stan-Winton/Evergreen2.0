@@ -36,7 +36,7 @@ class RegistroEmpresaController extends AbstractController
             $usuario->setROLES(['ROLE_USER']);
             $this->em->persist($usuario);
             $this->em->flush();
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('login');
         }
         return $this->render('registro_empresa/index.html.twig', [
         'registroForm' => $registroForm->createView()

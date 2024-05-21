@@ -14,23 +14,24 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <div class="centered-form">
-        <img src={{ asset('images/logo.svg')}} alt="logo">
-
-        <form action="{{ path('login') }}" method="post">
-            <label for="username">Nombre de usuario:</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}">
-
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="_password">
-
-            <input type="hidden" name="_target_path" value="/home"> 
-
-            <button type="submit">Siguiente</button>
-            <a href="{{ path('app_home') }}" class="btn">Cancelar</a>
-        </form>
-
-        <p>¿Todavía no tienes cuenta? Crea una desde <a href="{{ path('app_login2') }}">aquí</a>.</p>
+    <div class="login-container">
+        <div class="login-box">
+            <img src="{{ asset('images/logo.svg') }}" alt="logo">
+            <form action="{{ path('login') }}" method="post">
+                <div class="input-field">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}">
+                </div>
+                <div class="input-field">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="_password">
+                </div>
+                <input type="hidden" name="_target_path" value="/home"> 
+                <button type="submit" class="button next">Siguiente</button>
+                <a href="{{ path('app_home') }}" class="button cancel">Cancelar</a>
+            </form>
+            <p>¿Todavía no tienes cuenta? Crea una desde <a href="{{ path('app_login2') }}">aquí</a>.</p>
+        </div>
     </div>
 {% endblock %}
 </html>
