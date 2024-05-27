@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "core-js": "^3.37.1",
     "yarn": "^1.22.21"
   },
   "devDependencies": {
