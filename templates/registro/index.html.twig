@@ -1,0 +1,13 @@
+{% block title %}{% endblock %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block body %}
+<body style="background-image: url('{{ asset('images/FondoRegistro.svg') }}'); background-repeat: no-repeat; background-size: cover;">
+    <div class="form-container">
+        <h1 class="form-title">Alta de Usuario</h1>
+        {{form(registroForm)}}
+        <a href="{{ path('app_login2') }}" class="btn btn-default btn-cancel">Cancelar</a>
+    </div>
+</body>
+{% endblock %}

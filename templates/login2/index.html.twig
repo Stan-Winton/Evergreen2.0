@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iniciar sesión</title>
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 </head>
-
-{% block title %}Iniciar sesión 2{% endblock %}
-
+<body style="background-image: url('{{ asset('images/fondoLogin.svg') }}'); background-size: cover;">
 {% block body %}
-<body class="login-page">
-<div class="login-container">
-    <img src="{{ asset('images/tu-logo.png') }}" alt="Logo">
-    {{ form_start(form) }}
-        {{ form_row(form.tipo_usuario) }}
-        {{ form_row(form.save) }}
-    {{ form_end(form) }}
-    <input type="button" value="Cancelar" style="background-color: gray; color: white;" onclick="window.location.href='{{ path('app_login') }}'">
+<div class="login2-container">
+    <div class="login2-box">
+        <img src="{{ asset('images/logo.svg') }}" alt="Logo">
+        <h2 class="form-title">¿Eres particular o una empresa?</h2>
+        {{ form_start(form) }}
+            {{ form_widget(form.tipo_usuario) }}
+            {{ form_row(form.save, {'attr': {'class': 'button next'}}) }}
+        {{ form_end(form) }}
+        <input type="button" value="Cancelar" class="button cancel" onclick="window.location.href='{{ path('login') }}'">
+    </div>
 </div>
-</body>
 {% endblock %}
+</body>
 </html>

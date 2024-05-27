@@ -42,22 +42,31 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $fecha = null;
 
-    #[ORM\Column]
-    private ?bool $rol = null;
-
     #[ORM\ManyToOne(inversedBy: 'usuario')]
     private ?Comercios $comercios = null;
 
-    #[ORM\OneToMany(targetEntity: pedidos::class, mappedBy: 'usuario')]
+    #[ORM\OneToMany(targetEntity: Pedidos::class, mappedBy: 'usuario')]
     private Collection $pedido;
 
-    #[ORM\OneToMany(targetEntity: valoraciones::class, mappedBy: 'usuario')]
+    #[ORM\OneToMany(targetEntity: Valoraciones::class, mappedBy: 'usuario')]
     private Collection $valoracion;
 
-    public function __construct()
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $foto = null;
+
+    public function __construct($id = null, $email = null, $password = null, $nombre = null, $direccion = null, $telefono = null, $fecha = null, $comercios = null, $pedido = null, $valoracion = null, $foto = null)
     {
+        $this->id = $id;
+        $this->email = $email;
+        $this->password = $password;
+        $this->nombre = $nombre;
+        $this->direccion = $direccion;
+        $this->telefono = $telefono;
+        $this->fecha = $fecha;
+        $this->comercios = $comercios;
         $this->pedido = new ArrayCollection();
-        $this->valoracion = new ArrayCollection();
+        $this->valoracion = new ArrayCollection();  
+        $this->foto = $foto;
     }
 
     public function getId(): ?int
@@ -178,18 +187,6 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function isRol(): ?bool
-    {
-        return $this->rol;
-    }
-
-    public function setRol(bool $rol): static
-    {
-        $this->rol = $rol;
-
-        return $this;
-    }
-
     public function getComercios(): ?Comercios
     {
         return $this->comercios;
@@ -210,7 +207,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->pedido;
     }
 
-    public function addPedido(pedidos $pedido): static
+    public function addPedido(Pedidos $pedido): static
     {
         if (!$this->pedido->contains($pedido)) {
             $this->pedido->add($pedido);
@@ -220,7 +217,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removePedido(pedidos $pedido): static
+    public function removePedido(Pedidos $pedido): static
     {
         if ($this->pedido->removeElement($pedido)) {
             // set the owning side to null (unless already changed)
@@ -240,7 +237,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->valoracion;
     }
 
-    public function addValoracion(valoraciones $valoracion): static
+    public function addValoracion(Valoraciones $valoracion): static
     {
         if (!$this->valoracion->contains($valoracion)) {
             $this->valoracion->add($valoracion);
@@ -250,7 +247,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeValoracion(valoraciones $valoracion): static
+    public function removeValoracion(Valoraciones $valoracion): static
     {
         if ($this->valoracion->removeElement($valoracion)) {
             // set the owning side to null (unless already changed)
@@ -258,6 +255,18 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
                 $valoracion->setUsuario(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFoto(): ?string
+    {
+        return $this->foto;
+    }
+
+    public function setFoto(?string $foto): self
+    {
+        $this->foto = $foto;
 
         return $this;
     }

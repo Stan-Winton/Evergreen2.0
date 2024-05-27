@@ -21,28 +21,50 @@ class ComerciosRepository extends ServiceEntityRepository
         parent::__construct($registry, Comercios::class);
     }
 
-//    /**
-//     * @return Comercios[] Returns an array of Comercios objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findWithProductsByComercio($comercioId)
+    {
+        return $this->createQueryBuilder('c')
+            ->leftJoin('c.productos', 'p')
+            ->addSelect('p')
+            ->where('c.id = :id')
+            ->andWhere('p.comercios = :comercioId')
+            ->setParameter('id', $comercioId)
+            ->setParameter('comercioId', $comercioId)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 
-//    public function findOneBySomeField($value): ?Comercios
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findByCodigoPostal($codigoPostal): array
+{
+    return $this->createQueryBuilder('c')
+        ->andWhere('c.codigoPostal = :val')
+        ->setParameter('val', $codigoPostal)
+        ->getQuery()
+        ->getResult();
+}
+
+    // Uncomment these methods if you need them
+
+    // /**
+    //  * @return Comercios[] Returns an array of Comercios objects
+    //  */
+    // public function findByExampleField($value): array
+    // {
+    //     return $this->createQueryBuilder('c')
+    //         ->andWhere('c.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->orderBy('c.id', 'ASC')
+    //         ->setMaxResults(10)
+    //         ->getQuery()
+    //         ->getResult();
+    // }
+
+    // public function findOneBySomeField($value): ?Comercios
+    // {
+    //     return $this->createQueryBuilder('c')
+    //         ->andWhere('c.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->getQuery()
+    //         ->getOneOrNullResult();
+    // }
 }

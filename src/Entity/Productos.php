@@ -27,17 +27,20 @@ class Productos
     #[ORM\Column]
     private ?int $stock = null;
 
-    #[ORM\ManyToOne(inversedBy: 'producto')]
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $tipo_producto = null;
+
+    #[ORM\ManyToOne(inversedBy: 'productos')]
     private ?Comercios $comercios = null;
 
-    #[ORM\OneToOne(inversedBy: 'productos', cascade: ['persist', 'remove'])]
-    private ?categorias $categoria = null;
-
-    #[ORM\ManyToMany(targetEntity: pedidos::class, inversedBy: 'productos')]
+    #[ORM\ManyToMany(targetEntity: Pedidos::class, inversedBy: 'productos')]
     private Collection $pedido;
 
-    #[ORM\OneToMany(targetEntity: valoraciones::class, mappedBy: 'productos')]
+    #[ORM\OneToMany(targetEntity: Valoraciones::class, mappedBy: 'productos')]
     private Collection $valoracion;
+
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $imagen = null;
 
     public function __construct()
     {
@@ -98,6 +101,18 @@ class Productos
         return $this;
     }
 
+    public function getTipoProducto(): ?string
+    {
+        return $this->tipo_producto;
+    }
+
+    public function setTipoProducto(?string $tipo_producto): self
+    {
+        $this->tipo_producto = $tipo_producto;
+
+        return $this;
+    }
+
     public function getComercios(): ?Comercios
     {
         return $this->comercios;
@@ -110,18 +125,6 @@ class Productos
         return $this;
     }
 
-    public function getCategoria(): ?categorias
-    {
-        return $this->categoria;
-    }
-
-    public function setCategoria(?categorias $categoria): static
-    {
-        $this->categoria = $categoria;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, pedidos>
      */
@@ -130,7 +133,7 @@ class Productos
         return $this->pedido;
     }
 
-    public function addPedido(pedidos $pedido): static
+    public function addPedido(Pedidos $pedido): static
     {
         if (!$this->pedido->contains($pedido)) {
             $this->pedido->add($pedido);
@@ -139,7 +142,7 @@ class Productos
         return $this;
     }
 
-    public function removePedido(pedidos $pedido): static
+    public function removePedido(Pedidos $pedido): static
     {
         $this->pedido->removeElement($pedido);
 
@@ -154,7 +157,7 @@ class Productos
         return $this->valoracion;
     }
 
-    public function addValoracion(valoraciones $valoracion): static
+    public function addValoracion(Valoraciones $valoracion): static
     {
         if (!$this->valoracion->contains($valoracion)) {
             $this->valoracion->add($valoracion);
@@ -164,7 +167,7 @@ class Productos
         return $this;
     }
 
-    public function removeValoracion(valoraciones $valoracion): static
+    public function removeValoracion(Valoraciones $valoracion): static
     {
         if ($this->valoracion->removeElement($valoracion)) {
             // set the owning side to null (unless already changed)
@@ -172,6 +175,18 @@ class Productos
                 $valoracion->setProductos(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(?string $imagen): static
+    {
+        $this->imagen = $imagen;
 
         return $this;
     }

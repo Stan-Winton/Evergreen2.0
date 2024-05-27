@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Perfil de {{ usuario.nombre }}</h1>
+
+    {# Check if the user has a photo #}
+    <div class="image-placeholder">
+        {% if usuario.foto %}
+            <img class="profile-image" src="{{ asset('uploads/' ~ usuario.foto) }}" alt="{{ usuario.nombre }}" />
+        {% endif %}
+    </div>
+
+    <p>Email: {{ usuario.email }}</p>
+    <p>Nombre: {{ usuario.nombre }}</p>
+    <p>Dirección: {{ usuario.direccion }}</p>
+    <p>Teléfono: {{ usuario.telefono }}</p>
+    <p>Fecha de nacimiento: {{ usuario.fecha|date('Y-m-d') }}</p>
+
+    <a href="{{ path('perfil_editar') }}">Editar perfil</a>
+
+    {# Add this block for the photo upload form #}
+    {{ form_start(fotoForm) }}
+        {{ form_widget(fotoForm.foto, {'attr': {'style': 'display: none;', 'onchange': 'form.submit()'}}) }}
+        <button type="button" onclick="document.getElementById('{{ fotoForm.foto.vars.id }}').click()">Añadir imagen</button>
+    {{ form_end(fotoForm) }}
+
+    <a href="{{ path('app_logout') }}">Cerrar sesión</a>
+{% endblock %}

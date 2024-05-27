@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Compra online</h1>
+
+    <form action="{{ path('compra_online') }}" method="get">
+        <input type="text" name="q" placeholder="Buscar productos...">
+        <button type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+
+    <form action="{{ path('compra_online') }}" method="get">
+        <select name="tipoProducto">
+            <option value="">Todos los tipos</option>
+            {% for tipo in tiposProducto %}
+                <option value="{{ tipo }}">{{ tipo }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <div id="productos-modal">
+    {% if productos is defined %}
+        {% if productos|length == 0 %}
+            <p>No hay productos disponibles en esta categoría.</p> <!-- Cambio aquí -->
+        {% else %}
+            {% for producto in productos %}
+                <div class="producto" data-category="{{ producto.getTipoProducto() }}">
+                    <img src="{{ asset('uploads/' ~ producto.imagen) }}" alt="{{ producto.nombre }}">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>{{ producto.descripcion }}</p>
+                    <p>{{ producto.precio }} Euros</p>
+                    <p id="stock-{{ producto.id }}">Stock: {{ producto.stock }}</p>
+                    <button class="add-to-cart" data-id="{{ producto.id }}">
+                    <i class="fas fa-shopping-cart"></i>   
+                    </button>   
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    </div>
+    {% block footer %}{% endblock %}
+{% endblock %}

@@ -17,6 +17,7 @@ class Login2FormType extends AbstractType
                     'Particular' => 'particular',
                     'Empresa' => 'empresa',
                 ],
+                'expanded' => true,
             ])
             ->add('save', SubmitType::class, ['label' => 'Siguiente'])
         ;

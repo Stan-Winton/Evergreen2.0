@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iniciar sesión</title>
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 </head>
 
-{% block title %}Iniciar sesión{% endblock %}
-
+<body style="background-image: url('{{ asset('images/fondoLogin.svg') }}'); background-size: cover;">
 {% block body %}
-<body class="login-page">
-<div class="login-container">
-    <img src="{{ asset('images/tu-logo.png') }}" alt="Logo">
-    {{ form_start(form) }}
-        {{ form_label(form.username, 'Nombre de usuario:') }}
-        {{ form_widget(form.username) }}
-        {{ form_label(form.password, 'Contraseña:') }}
-        {{ form_widget(form.password) }}
-        {{ form_widget(form.next) }}
-        {{ form_widget(form.cancel) }}
-    {{ form_end(form) }}
-    <p>¿Todavía no tienes cuenta? Crea una desde <a href="{{ path('app_login2') }}">aquí</a>.</p>
-</div>
-</body>
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
+    <div class="login-container">
+        <div class="login-box">
+            <img src="{{ asset('images/logo.svg') }}" alt="logo">
+            <form action="{{ path('login') }}" method="post">
+                <div class="input-field">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}">
+                </div>
+                <div class="input-field">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="_password">
+                </div>
+                <input type="hidden" name="_target_path" value="/home"> 
+                <button type="submit" class="button next">Siguiente</button>
+                <a href="{{ path('app_home') }}" class="button cancel">Cancelar</a>
+            </form>
+            <p>¿Todavía no tienes cuenta? Crea una desde <a href="{{ path('app_login2') }}">aquí</a>.</p>
+        </div>
+    </div>
 {% endblock %}
 </html>

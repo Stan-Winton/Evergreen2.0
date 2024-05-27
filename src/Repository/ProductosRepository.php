@@ -21,28 +21,43 @@ class ProductosRepository extends ServiceEntityRepository
         parent::__construct($registry, Productos::class);
     }
 
-//    /**
-//     * @return Productos[] Returns an array of Productos objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Productos[] Returns an array of Productos objects
+     */
+    public function findByNombre($value): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('LOWER(p.nombre) LIKE LOWER(:val)')
+            ->andWhere('p.stock > 0') // Añadido esta línea
+            ->setParameter('val', '%' . $value . '%')
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?Productos
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * @return Productos[] Returns an array of Productos objects
+     */
+    public function findByTipoProducto($value): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.tipo_producto = :val')
+            ->andWhere('p.stock > 0') // Añadido esta línea
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+    * @return string[] Returns an array of distinct tiposProducto
+    */
+    public function findDistinctTiposProducto(): array
+    {
+        $result = $this->createQueryBuilder('p')
+            ->select('DISTINCT p.tipo_producto')
+            ->getQuery()
+            ->getScalarResult();
+
+        // Flatten the array
+        return array_column($result, 'tipo_producto');
+    }
 }

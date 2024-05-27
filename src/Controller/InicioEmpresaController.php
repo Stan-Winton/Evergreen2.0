@@ -1,0 +1,67 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\Productos;
+use App\Repository\ProductosRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
+
+class InicioEmpresaController extends AbstractController
+{
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
+
+    #[Route('/inicio_empresa', name: 'inicio_empresa', methods: ['GET'])]
+    public function index(ProductosRepository $productosRepository): Response
+    {
+        $comercio = $this->security->getUser();
+    
+        $productos = $productosRepository->findBy(['comercios' => $comercio], ['id' => 'DESC'], 4);
+    
+        return $this->render('inicio_empresa/index.html.twig', [
+            'controller_name' => 'InicioEmpresaController',
+            'productos' => $productos,
+        ]);
+    }
+
+    #[Route('/inicio_empresa', name: 'inicio_empresa_post', methods: ['POST'])]
+    public function subirProducto(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $comercio = $this->security->getUser();
+
+        $producto = new Productos();
+        $producto->setNombre($request->request->get('productoNombre'));
+        $producto->setDescripcion($request->request->get('productoDescripcion'));
+        $producto->setPrecio((int) $request->request->get('productoPrecio'));
+        $producto->setStock((int) $request->request->get('productoStock'));
+        $producto->setTipoProducto($request->request->get('productoTipo'));
+        $producto->setComercios($comercio);
+
+        // Manejar la carga de la imagen
+        $file = $request->files->get('productoImagen');
+        if ($file) {
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('uploads_directory'), $fileName);
+            $producto->setImagen($fileName);
+        }
+
+        try {
+            $entityManager->persist($producto);
+            $entityManager->flush();
+        } catch (\Exception $e) {
+            error_log('Error al guardar el producto: ' . $e->getMessage());
+            return $this->redirectToRoute('error');
+        }
+
+        return $this->redirectToRoute('inicio_empresa');
+    }
+}
