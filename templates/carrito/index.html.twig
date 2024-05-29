@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Carrito</h1>
+
+    <!-- Bloque para mostrar mensajes flash -->
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div id="carrito">
+    {% for producto in productos %}
+        <div class="producto">
+            <img src="{{ asset('uploads/' ~ producto.imagen) }}" alt="{{ producto.nombre }}">
+            <h3>{{ producto.nombre }}</h3>
+            <p>{{ producto.precio }} Euros</p>
+            <p>Stock: {{ producto.stock }}</p>
+            <form action="{{ path('actualizar_carrito', {'id': producto.id}) }}" method="post">
+                <input type="number" name="cantidad" value="{{ carrito[producto.id] }}" min="1" max="{{ producto.stock }}">
+                <button type="submit">Actualizar</button>
+            </form>
+            <form action="{{ path('eliminar_del_carrito', {'id': producto.id}) }}" method="post">
+                <button type="submit">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </form>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div id="total">
+        <p>Total: {{ total }} Euros</p>
+    </div>
+
+    <form action="{{ path('realizar_pedido') }}" method="post" id="pedido-form">
+        <button type="submit" id="realizar-pedido">Realizar pedido</button>
+    </form>
+
+    <script>
+        document.getElementById('realizar-pedido').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe
+            alert('Su pedido se ha realizado con éxito');
+            document.getElementById('pedido-form').submit(); // Envía el formulario
+        });
+    </script>
+{% endblock %}

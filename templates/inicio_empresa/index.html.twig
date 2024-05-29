@@ -21,9 +21,32 @@
         Subir productos
     </button>
 
-    <h2 class="seccion">Pedidos</h2>
+    <h2 class="seccion pedidos">Pedidos</h2>
     <section id="pedidos">
-        <!-- Aquí se mostrarán los pedidos -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"># Pedido</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidos %}
+                    <tr>
+                        <td>{{ pedido.id }}</td>
+                        <td>{{ pedido.total }}</td>
+                        <td>{{ pedido.estado }}</td>
+                        <td>{{ pedido.fecha|date('Y-m-d') }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">No hay pedidos.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </section>
 </div>
 
@@ -38,33 +61,32 @@
             <div class="modal-body">
                 <!-- Aquí puedes poner un formulario para ingresar los datos del producto -->
                 <form id="productoForm" action="{{ path('inicio_empresa_post') }}" method="POST" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label for="productoImagen" class="form-label">Imagen del producto</label>
-        <input type="file" class="form-control" id="productoImagen" name="productoImagen">
-    </div>
-    <div class="mb-3">
-        <label for="productoNombre" class="form-label">Nombre del producto</label>
-        <input type="text" class="form-control" id="productoNombre" name="productoNombre">
-    </div>
-    <div class="mb-3">
-        <label for="productoDescripcion" class="form-label">Descripción del producto</label>
-        <textarea class="form-control" id="productoDescripcion" name="productoDescripcion"></textarea>
-    </div>
-    <div class="mb-3">
-        <label for="productoTipo" class="form-label">Tipo de producto</label>
-        <input type="text" class="form-control" id="productoTipo" name="productoTipo">
-</div>
-    <div class="mb-3">
-        <label for="productoPrecio" class="form-label">Precio del producto</label>
-        <input type="number" class="form-control" id="productoPrecio" name="productoPrecio">
-    </div>
-    <div class="mb-3">
-        <label for="productoStock" class="form-label">Cantidad de stock</label>
-        <input type="number" class="form-control" id="productoStock" name="productoStock">
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar producto</button>
-</form>
-            </div>
+                    <div class="mb-3">
+                        <label for="productoImagen" class="form-label">Imagen del producto</label>
+                        <input type="file" class="form-control" id="productoImagen" name="productoImagen">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productoNombre" class="form-label">Nombre del producto</label>
+                        <input type="text" class="form-control" id="productoNombre" name="productoNombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productoDescripcion" class="form-label">Descripción del producto</label>
+                        <textarea class="form-control" id="productoDescripcion" name="productoDescripcion"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productoTipo" class="form-label">Tipo de producto</label>
+                        <input type="text" class="form-control" id="productoTipo" name="productoTipo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productoPrecio" class="form-label">Precio del producto</label>
+                        <input type="number" class="form-control" id="productoPrecio" name="productoPrecio">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productoStock" class="form-label">Cantidad de stock</label>
+                        <input type="number" class="form-control" id="productoStock" name="productoStock">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar producto</button>
+                </form>
             </div>
         </div>
     </div>

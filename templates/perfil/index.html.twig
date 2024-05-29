@@ -1,28 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Perfil de {{ usuario.nombre }}</h1>
+    <div class="profile-container">
+        <div class="image-and-button-container">
+            <div class="image-placeholder">
+                {% if usuario.foto %}
+                    <img class="profile-image" src="{{ asset('uploads/' ~ usuario.foto) }}" alt="{{ usuario.nombre }}" />
+                {% endif %}
+            </div>
 
-    {# Check if the user has a photo #}
-    <div class="image-placeholder">
-        {% if usuario.foto %}
-            <img class="profile-image" src="{{ asset('uploads/' ~ usuario.foto) }}" alt="{{ usuario.nombre }}" />
-        {% endif %}
+            <div class="button-container">
+                <a href="{{ path('perfil_editar') }}" class="button button-edit-profile">Editar perfil</a>
+
+                {# Add this block for the photo upload form #}
+                {{ form_start(fotoForm) }}
+                    {{ form_widget(fotoForm.foto, {'attr': {'style': 'display: none;', 'onchange': 'form.submit()'}}) }}
+                    <button type="button" class="button button-add-image" onclick="document.getElementById('{{ fotoForm.foto.vars.id }}').click()">Añadir imagen</button>
+                {{ form_end(fotoForm) }}
+
+                <a href="{{ path('app_logout') }}" class="button button-logout">Cerrar sesión</a>
+            </div>
+        </div>
+
+        <div>
+            <h1 class="profile-title">Perfil de {{ usuario.nombre }}</h1>
+
+            <div class="profile-field-container">
+                <p class="profile-field">Nombre: <span class="field-box">{{ usuario.nombre }}</span></p>
+                <p class="profile-field">Email: <span class="field-box">{{ usuario.email }}</span></p>
+            </div>
+
+            <p class="profile-field">Dirección: <span class="field-box">{{ usuario.direccion }}</span></p>
+            <p class="profile-field">Teléfono: <span class="field-box">{{ usuario.telefono }}</span></p>
+            <p class="profile-field">Fecha de nacimiento: <span class="field-box">{{ usuario.fecha|date('Y-m-d') }}</span></p>
+        </div>
     </div>
-
-    <p>Email: {{ usuario.email }}</p>
-    <p>Nombre: {{ usuario.nombre }}</p>
-    <p>Dirección: {{ usuario.direccion }}</p>
-    <p>Teléfono: {{ usuario.telefono }}</p>
-    <p>Fecha de nacimiento: {{ usuario.fecha|date('Y-m-d') }}</p>
-
-    <a href="{{ path('perfil_editar') }}">Editar perfil</a>
-
-    {# Add this block for the photo upload form #}
-    {{ form_start(fotoForm) }}
-        {{ form_widget(fotoForm.foto, {'attr': {'style': 'display: none;', 'onchange': 'form.submit()'}}) }}
-        <button type="button" onclick="document.getElementById('{{ fotoForm.foto.vars.id }}').click()">Añadir imagen</button>
-    {{ form_end(fotoForm) }}
-
-    <a href="{{ path('app_logout') }}">Cerrar sesión</a>
 {% endblock %}

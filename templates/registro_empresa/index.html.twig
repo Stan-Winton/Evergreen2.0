@@ -1,7 +1,14 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Hello RegistroEmpresaController!{% endblock %}
 
+{% block title %}{% endblock %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
 {% block body %}
-    {{form(registroForm)}}
+<body style="background-image: url('{{ asset('images/FondoRegistro.svg') }}'); background-repeat: no-repeat; background-size: cover;">
+    <div class="form-container empresa">
+        <h1 class="form-title">Alta de Empresa</h1>
+        {{form(registroForm)}}
+    </div>
+</body>
 {% endblock %}
