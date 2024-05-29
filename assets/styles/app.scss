@@ -30,15 +30,58 @@
 }
 
 /* Cambia el color del icono del carrito a verde */
-.btn-outline-primary {
+.carrito-btn {
     border: none;
     margin-left: 50px;
+    background-color: transparent; /* Asegura que el color de fondo es transparente */
+
     .fas.fa-shopping-cart {
         color: green;
         font-size: 24px;
     } 
-}  
 
+    &:hover {
+        background-color: transparent; /* Asegura que el color de fondo es transparente en hover */
+        .fas.fa-shopping-cart {
+            color: #81B97D; /* Cambia el color del icono a un verde más claro cuando se pasa el ratón por encima */
+        }
+    }
+}
+
+//HEADER2
+
+/* Añade 40px de margen a la izquierda del logo */
+.navbar-brand.logo {
+    margin-left: 40px;
+}
+
+/* Centra los elementos de la lista de navegación */
+.navbar-nav {
+    justify-content: center;
+}
+
+/* Añade 125px de margen a la derecha del botón Mi perfil */
+.btn.btn-outline-success.nav-item-custom {
+    margin-right: 125px;
+}
+
+.container-fluid {
+    display: grid;
+    grid-template-areas: "logo nav profile";
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.logo-area {
+    grid-area: logo;
+}
+
+.nav-area {
+    grid-area: nav;
+}
+
+.profile-area {
+    grid-area: profile;
+}
 
 
 
@@ -52,7 +95,8 @@
     text-align: center; // Centra el contenido del pie de página
     background-repeat: no-repeat;
     background-position: center;
-    width: 100%; // Hace que el pie de página tenga el ancho completo
+    width: 100%;
+    margin-top: auto; // Hace que el pie de página tenga el ancho completo
 }
 //HOME 
 .content {
@@ -199,37 +243,6 @@ h1.titulo-24, .mb-3.mb-md-0 p {
     margin-bottom: 100px;
 }
 
-/*CONOCENOS*/
-
-/* Estilo para la imagen principal */
-.image-container {
-    display: flex;
-    justify-content: center;
-    margin: 2%; /* Ajusta este valor según tus necesidades */
-}
-
-.image-container img {
-    width: 96%;
-    height: auto;
-}
-
-/* Estilo para las secciones de contenido */
-.content-section {
-    display: flex;
-    justify-content: space-between;
-    width: 96%;
-    margin: 20px auto; /* Ajusta este valor según tus necesidades */
-}
-
-.text-section {
-    flex: 1;
-    margin-right: 10px; /* Ajusta este valor según tus necesidades */
-}
-
-.image-section {
-    flex: 1;
-    margin-left: 10px; /* Ajusta este valor según tus necesidades */
-}
 
 .first-image {
     margin-top: 50px; /* Ajusta este valor según tus necesidades */
@@ -310,6 +323,7 @@ h2.subtitulo {
     color: #5C9738;
 }
 //COMPRA
+
 .header-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
@@ -324,7 +338,6 @@ h2.subtitulo {
     margin-top: 126px;
     margin-bottom: 21px;
 }
-
 
 .caja {
     position: absolute;
@@ -351,7 +364,16 @@ h2.subtitulo {
 
 .btn-buscar {
     width: 250px;
-    background-color: green;
+    background-color: green !important;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus:active {
+        background-color: #81B97D !important; /* Cambia el color de fondo a un verde más claro cuando se pasa el ratón por encima, está enfocado o activo */
+        border-color: #81B97D !important; /* Cambia el color del borde a un verde más claro cuando está activo */
+        outline: none !important; /* Elimina el borde azul cuando el botón está enfocado */
+    }
 }
 
 .titulo-container {
@@ -378,6 +400,13 @@ h2.subtitulo {
 
 #codigo-tienda {
     margin-top: 20px;
+    list-style-type: none
+}
+
+#nombre-comercio {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 
@@ -562,8 +591,6 @@ h2.subtitulo {
     }
 }
 
-
-
 /*REGISTRO*/
 
 .form-container {
@@ -629,13 +656,15 @@ h2.subtitulo {
         margin-left: 16px; /* Agrega un margen a la izquierda del segundo botón */
     }
 
-    .btn-cancel {
-        width: 435px;
-        font-family: 'Montserrat', sans-serif;
-        border: none;
-        border-radius: 10px;
-        background-color: #909090;
-        color:white;
+    .btn-gris {
+        background-color: #808080; /* Color de fondo gris */
+        color: #FFFFFF; /* Color de texto blanco */
+        border-color: #808080; /* Color de borde gris */
+    
+        &:hover {
+            background-color: #606060; /* Color de fondo gris oscuro cuando el ratón pasa por encima */
+            border-color: #606060; /* Color de borde gris oscuro cuando el ratón pasa por encima */
+        }
     }
 
     @media (max-width: 600px) {
@@ -653,27 +682,278 @@ h2.subtitulo {
     }
 }
 
-//Perfil
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+input[type="date"] {
+    width: 100%;
+}
+.form-container.empresa {
+    height: 870px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 10%; /* Ajusta esto según tus necesidades */
+    left: 50%;
+    transform: translate(-50%, -10%); /* Ajusta esto según tus necesidades */
+    padding-top: 20px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        max-width: 568px;
+        margin-top: 40px; /* Mueve el formulario más arriba */
+    }
+}
+
+.btn-gray {
+    background-color: #808080; /* Color de fondo gris */
+    color: #FFFFFF; /* Color de texto blanco */
+    border-color: #808080; /* Color de borde gris */
+
+    &:hover {
+        background-color: #606060; /* Color de fondo gris oscuro cuando el ratón pasa por encima */
+        border-color: #606060; /* Color de borde gris oscuro cuando el ratón pasa por encima */
+    }
+}
+
+// Perfil
+
+.profile-container {
+    display: flex;
+    align-items: start;
+}
+
+.image-and-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .image-placeholder {
+    margin-top: 40px;
+    margin-left: 109px;
     width: 172px;
     height: 172px;
     border: 1px solid #ccc;
-    background-color: #ccc; /* This will make the background color gray */
-    border-radius: 50%; /* This will make the placeholder round */
-    overflow: hidden; /* This will ensure the image does not exceed the round placeholder */
+    background-color: #ccc;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .profile-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This will ensure the image covers the entire placeholder */
+    object-fit: cover;
 }
 
-.nav-item-custom {
-    margin: 0 200px 0 50px;
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 100px;
 }
 
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: green;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: 142px;
+    height: 50px;
+}
+
+.button:hover {
+    background-color: #64AD61;
+}
+
+.profile-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 63px;
+    margin-left: 50px;
+}
+
+.profile-field {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.field-box {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-left: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+}
+
+.button-edit-profile, .button-edit-profile:visited {
+    background-color: #fff;
+    color: green;
+    border: 1px solid green;
+}
+
+.button-edit-profile:hover {
+    background-color: #64AD61;
+    // No hay cambio de color en el hover
+}
+
+.button-add-image, .button-add-image:visited {
+    background-color: #fff;
+    color: green;
+    border: 1px solid green;
+}
+
+.button-add-image:hover {
+    background-color: #64AD61;
+    color: #fff;
+}
+
+.button-logout, .button-logout:visited {
+    background-color: #fff;
+    color: green;
+    border: 1px solid green;
+}
+
+.button-logout:hover {
+    background-color: #64AD61;
+    // No hay cambio de color en el hover
+}
+
+// Estilos para pantallas pequeñas (móviles)
+@media (max-width: 600px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-and-button-container {
+        margin-top: 20px;
+    }
+
+    .image-placeholder {
+        margin-left: 0;
+    }
+
+    .button-container {
+        margin-left: 0;
+    }
+
+    .profile-title, .profile-field {
+        margin-left: 20px;
+    }
+}
+
+// Estilos para pantallas medianas (tabletas)
+@media (min-width: 601px) and (max-width: 900px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-and-button-container {
+        margin-top: 30px;
+    }
+
+    .image-placeholder {
+        margin-left: 0;
+    }
+
+    .button-container {
+        margin-left: 0;
+    }
+
+    .profile-title, .profile-field {
+        margin-left: 30px;
+    }
+}
+
+
+
+//EDITAR PERFIL
+
+.form-field-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 600px; /* Ajusta este valor para cambiar el ancho total del formulario */
+    margin: 50px auto; /* Esto centra el formulario en la página y lo mueve 50px hacia abajo */
+}
+
+.form-field {
+    flex: 0 0 45%; /* Esto hace que cada campo ocupe aproximadamente la mitad de la fila, permitiendo 2 campos por fila */
+    margin-bottom: 1em;
+    border: 1px solid green;
+}
+
+.form-field:nth-child(5) {
+    flex: 0 0 100%; /* Esto hace que el último campo ocupe el 100% del ancho, centrándolo en la fila */
+    text-align: center; /* Esto centra el texto del último campo */
+}
+
+.titulo-editar {
+    margin-top: 50px; /* Esto mueve "Editar usuario" 50px hacia abajo */
+    margin-left: 150px; /* Esto mueve "Editar usuario" 50px hacia la derecha */
+}
+
+.campo-etiqueta {
+    font-family: 'Montserrat', sans-serif; /* Esto cambia la fuente a Montserrat */
+    font-weight: bold; /* Esto hace que el texto sea en negrita */
+}
+
+.save-changes-button {
+    width: 142px;
+    height: 60px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto; /* Esto centra el botón en la página */
+}
+
+.save-changes-button:hover {
+    background-color: #64AD61; // Un verde más claro para el efecto hover
+}
+
+// Media queries para hacer el formulario responsive
+@media (max-width: 600px) {
+    .form-field-container {
+        flex-direction: column;
+    }
+
+    .form-field {
+        flex: 0 0 100%;
+    }
+
+    .titulo-editar {
+        margin-left: 0;
+        text-align: center;
+    }
+}
 //Inicio Empresa
 
 body {

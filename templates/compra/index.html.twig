@@ -22,9 +22,9 @@
                         {% if comercios %}
                             <ul id="codigo-tienda">
                                 {% for comercio in comercios %}
-                                    <li>{{ comercio.nombreComercio }}</li>
-                                    <li>{{ comercio.direccionComercio }}</li>
-                                    <li>{{ comercio.telefono }}</li>
+                                    <li id="nombre-comercio">{{ comercio.nombreComercio }}</li>
+                                    <li>Dirección: {{ comercio.direccionComercio }}</li>
+                                    <li>Teléfono: {{ comercio.telefono }}</li>
                                     <hr>
                                 {% endfor %}
                             </ul>

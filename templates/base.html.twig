@@ -53,9 +53,8 @@
                 {% else %}
                 <button class="btn btn-outline-success" type="button" onclick="location.href='{{ path('login') }}'">Iniciar sesión</button>
                 {% endif %}
-                <a class="btn btn-outline-primary" href="#">
+                <a class="btn btn-outline-primary carrito-btn" href="{{ path('carrito') }}">
                     <i class="fas fa-shopping-cart"></i>
-                    <span id="cart-count">0</span>
                 </a>
                 </div>
             </div>

@@ -24,7 +24,12 @@ class UsuarioType extends AbstractType
             ->add('fecha', DateType::class, [
                 'widget' => 'single_text',
             ])
-            ->add('save', SubmitType::class, ['label' => 'Guardar cambios'])
+            ->add('save', SubmitType::class, [
+                'label' => 'Guardar cambios',
+                'attr' => [
+                    'class' => 'save-changes-button'
+                ]
+            ])
         ;
     }
 

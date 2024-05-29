@@ -22,7 +22,7 @@
 
     <div id="productos-modal">
     {% if productos is defined %}
-        {% if productos|length == 0 %}
+        {% if productos|length == 0 and busquedaRealizada %}
             <p>No hay productos disponibles en esta categoría.</p> <!-- Cambio aquí -->
         {% else %}
             {% for producto in productos %}
@@ -32,9 +32,12 @@
                     <p>{{ producto.descripcion }}</p>
                     <p>{{ producto.precio }} Euros</p>
                     <p id="stock-{{ producto.id }}">Stock: {{ producto.stock }}</p>
-                    <button class="add-to-cart" data-id="{{ producto.id }}">
-                    <i class="fas fa-shopping-cart"></i>   
-                    </button>   
+                    <form method="post" action="{{ path('agregar_al_carrito', {id: producto.id}) }}">
+                        <input type="hidden" name="cantidad" value="1">
+                        <button type="submit" class="add-to-cart" data-id="{{ producto.id }}">
+                            <i class="fas fa-shopping-cart"></i>   
+                        </button>
+                    </form>
                 </div>
             {% endfor %}
         {% endif %}

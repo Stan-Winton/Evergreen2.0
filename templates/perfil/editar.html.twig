@@ -1,13 +1,32 @@
-{# templates/perfil/editar.html.twig #}
+{# templates/usuario/editar.html.twig #}
 
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Editar perfil</h1>
+    <h1 class="titulo-editar">Editar usuario</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}   
+    <div class="form-field-container">
+        <div class="form-field">
+            {{ form_label(form.email, 'Email:', {'label_attr': {'class': 'campo-etiqueta'}}) }}
+            {{ form_widget(form.email) }}
+        </div>
+        <div class="form-field">
+            {{ form_label(form.nombre, 'Nombre:', {'label_attr': {'class': 'campo-etiqueta'}}) }}
+            {{ form_widget(form.nombre) }}
+        </div>
+        <div class="form-field">
+            {{ form_label(form.direccion, 'Dirección:', {'label_attr': {'class': 'campo-etiqueta'}}) }}
+            {{ form_widget(form.direccion) }}
+        </div>
+        <div class="form-field">
+            {{ form_label(form.telefono, 'Teléfono:', {'label_attr': {'class': 'campo-etiqueta'}}) }}
+            {{ form_widget(form.telefono) }}
+        </div>
+        <div class="form-field" style="width: 100%;">
+            {{ form_label(form.fecha, 'Fecha:', {'label_attr': {'class': 'campo-etiqueta'}}) }}
+            {{ form_widget(form.fecha) }}
+        </div>
+    </div>
     {{ form_end(form) }}
-
-      <a href="{{ path('perfil') }}" class="btn">Cancelar</a>  
 {% endblock %}

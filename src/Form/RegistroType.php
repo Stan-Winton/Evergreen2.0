@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use App\Entity\Usuario;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -46,7 +47,8 @@ class RegistroType extends AbstractType
             ->add('siguiente', SubmitType::class, [
                 'label' => 'Siguiente',
                 'attr' => ['class' => 'btn btn-success form-button']
-            ]);
+            ])
+            ->add('cancelar', ButtonType::class, ['label' => 'Cancelar', 'attr' => ['onclick' => 'history.back()', 'class' => 'btn btn-gris form-button']]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

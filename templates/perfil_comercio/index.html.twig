@@ -1,0 +1,17 @@
+{# templates/perfil_comercio/index.html.twig #}
+
+{% extends 'base2.html.twig' %}
+
+{% block body %}
+    <h1>Perfil de Comercio</h1>
+
+    <p>Nombre: {{ comercio.getNombreComercio }}</p>
+    <p>Dirección: {{ comercio.getDireccionComercio }}</p>
+    <p>Teléfono: {{ comercio.getTelefono }}</p>
+    <p>Razón Social: {{ comercio.getRazonSocial }}</p>
+    <p>Email: {{ comercio.getEmail }}</p>
+    <p>Código Postal: {{ comercio.getCodigoPostal }}</p>
+
+    <a href="{{ path('editar_perfil_comercio') }}">Editar Perfil</a>
+    <a href="{{ path('app_logout') }}">Cerrar Sesión</a>
+{% endblock %}

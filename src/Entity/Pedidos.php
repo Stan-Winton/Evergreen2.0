@@ -17,7 +17,7 @@ class Pedidos
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?bool $estado = null;
+    private ?string $estado = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $fecha = null;
@@ -31,9 +31,13 @@ class Pedidos
     #[ORM\ManyToOne(inversedBy: 'pedido')]
     private ?Usuario $usuario = null;
 
+    #[ORM\Column(type: "decimal", scale: 2)]
+    private ?string $total = null;
+
     public function __construct()
     {
         $this->productos = new ArrayCollection();
+        $this->estado = 'Aceptado';
     }
 
     public function getId(): ?int
@@ -41,12 +45,12 @@ class Pedidos
         return $this->id;
     }
 
-    public function isEstado(): ?bool
+    public function getEstado(): ?string
     {
         return $this->estado;
     }
 
-    public function setEstado(bool $estado): static
+    public function setEstado(string $estado): static
     {
         $this->estado = $estado;
 
@@ -112,6 +116,18 @@ class Pedidos
     public function setUsuario(?Usuario $usuario): static
     {
         $this->usuario = $usuario;
+
+        return $this;
+    }
+
+    public function getTotal(): ?string
+    {
+        return $this->total;
+    }
+
+    public function setTotal(string $total): self
+    {
+        $this->total = $total;
 
         return $this;
     }
