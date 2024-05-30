@@ -2,14 +2,27 @@
 
 {% block body %}
 {% set numero_pedido = 1 %}
-{% for pedido in app.user.getPedido %}
-    <div>
-        <h2>Pedido #{{ numero_pedido }}</h2>
-        <p>Unidades totales: {{ pedido.productos|length }}</p>
-        <p>Total: {{ pedido.total }}</p>
-        <p>Estado: {{ pedido.estado == 'A' ? 'Aceptado' : 'Desconocido' }}</p>
-        <p>Fecha: {{ pedido.fecha|date('Y-m-d H:i:s') }}</p>
-    </div>
-    {% set numero_pedido = numero_pedido + 1 %}
-{% endfor %}
+<table class="tabla-pedidos tabla-pedidos-grande">
+    <thead>
+        <tr>
+            <th>Pedido</th>
+            <th>Tipos de producto</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pedido in app.user.getPedido %}
+            <tr>
+                <td>#{{ numero_pedido }}</td>
+                <td>{{ pedido.productos|length }}</td>
+                <td>{{ pedido.total }}</td>
+                <td>{{ pedido.estado == 'A' ? 'Aceptado' : 'Desconocido' }}</td>
+                <td>{{ pedido.fecha|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            {% set numero_pedido = numero_pedido + 1 %}
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

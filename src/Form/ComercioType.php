@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Comercios;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -13,19 +14,40 @@ class ComercioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombre_comercio', TextType::class)
-            ->add('cif', TextType::class)
-            ->add('direccion_comercio', TextType::class)
-            ->add('telefono', TextType::class)
-            ->add('razon_social', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('codigo_postal', TextType::class);
+            ->add('nombreComercio', TextType::class, [
+                'attr' => ['class' => 'form-field'],
+                'label_attr' => ['class' => 'campo-etiqueta']
+            ])
+            ->add('CIF', TextType::class, [
+                'attr' => ['class' => 'form-field'],
+                'label_attr' => ['class' => 'campo-etiqueta']
+            ])
+            ->add('direccionComercio', TextType::class, [
+                'attr' => ['class' => 'form-field'],
+                'label_attr' => ['class' => 'campo-etiqueta']
+            ])
+            ->add('telefono', TextType::class, [
+                'attr' => ['class' => 'form-field'],
+                'label_attr' => ['class' => 'campo-etiqueta']
+            ])
+            ->add('razonSocial', TextType::class, [
+                'attr' => ['class' => 'form-field'],
+                'label_attr' => ['class' => 'campo-etiqueta']
+            ])
+            ->add('email', EmailType::class, [
+                'attr' => ['class' => 'form-field'],
+                'label_attr' => ['class' => 'campo-etiqueta']
+            ])
+            ->add('codigoPostal', TextType::class, [
+                'attr' => ['class' => 'form-field'],
+                'label_attr' => ['class' => 'campo-etiqueta']
+            ]);
     }
-
+    
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // Configura aquí las opciones
+            'data_class' => Comercios::class,
         ]);
     }
 }

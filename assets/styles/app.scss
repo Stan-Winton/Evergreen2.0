@@ -48,6 +48,12 @@
     }
 }
 
+.carrito-btn:focus {
+    box-shadow: none;
+    background-color: inherit;
+    outline: none;
+}
+
 //HEADER2
 
 /* Añade 40px de margen a la izquierda del logo */
@@ -55,12 +61,10 @@
     margin-left: 40px;
 }
 
-/* Centra los elementos de la lista de navegación */
 .navbar-nav {
     justify-content: center;
 }
 
-/* Añade 125px de margen a la derecha del botón Mi perfil */
 .btn.btn-outline-success.nav-item-custom {
     margin-right: 125px;
 }
@@ -83,6 +87,24 @@
     grid-area: profile;
 }
 
+/* Estilos para pantallas de hasta 600px de ancho */
+@media (max-width: 600px) {
+    .navbar-brand.logo {
+        margin-left: 20px; /* Reduce el margen izquierdo */
+    }
+
+    .btn.btn-outline-success.nav-item-custom {
+        margin-right: 20px; /* Reduce el margen derecho */
+    }
+
+    .container-fluid {
+        grid-template-areas: 
+            "logo"
+            "nav"
+            "profile"; /* Cambia la disposición de la cuadrícula para que cada área esté en su propia fila */
+        grid-template-columns: 1fr; /* Hace que cada área ocupe todo el ancho de la cuadrícula */
+    }
+}
 
 
 
@@ -889,8 +911,80 @@ input[type="date"] {
     }
 }
 
+//Perfil comercio
 
+.commerce-profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
 
+.commerce-profile-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-left: -400px;
+    text-align: left;
+}
+
+.commerce-profile-field {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.commerce-profile-field span {
+    font-weight: normal;
+    color: #333;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.commerce-profile-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: green;
+    text-decoration: none;
+    border: 1px solid green;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-right: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.commerce-profile-button:hover {
+    background-color: #64AD61;
+    color: #fff;
+}
+
+/* Estilos para pantallas de hasta 600px de ancho */
+@media (max-width: 600px) {
+    .commerce-profile-container {
+        padding: 10px; /* Reduce el padding */
+    }
+
+    .commerce-profile-title {
+        font-size: 20px; /* Reduce el tamaño de la fuente */
+        margin-left: 0; /* Elimina el margen izquierdo */
+    }
+
+    .commerce-profile-field {
+        font-size: 14px; /* Reduce el tamaño de la fuente */
+    }
+
+    .commerce-profile-button {
+        padding: 5px 10px; /* Reduce el padding */
+    }
+}
 //EDITAR PERFIL
 
 .form-field-container {
@@ -904,6 +998,9 @@ input[type="date"] {
 .form-field {
     flex: 0 0 45%; /* Esto hace que cada campo ocupe aproximadamente la mitad de la fila, permitiendo 2 campos por fila */
     margin-bottom: 1em;
+}
+
+.form-field input, .form-field select, .form-field textarea {
     border: 1px solid green;
 }
 
@@ -954,6 +1051,110 @@ input[type="date"] {
         text-align: center;
     }
 }
+
+
+/* EDITAR COMERCIO */
+
+.comercio-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos hijos horizontalmente */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    position: relative; /* Permite que los hijos posicionados de forma absoluta se posicionen en relación a este elemento */
+}
+
+.comercio-form .form-field-container {
+    display: flex;
+    flex-direction: column; /* Asegura que los campos se apilen verticalmente */
+    max-width: 300px; /* Ajusta este valor para cambiar el ancho total del formulario */
+    width: 100%; /* Asegura que el contenedor de los campos ocupe todo el ancho disponible */
+    margin: 50px auto; /* Esto centra el formulario en la página y lo mueve 50px hacia abajo */
+}
+
+.comercio-form .form-field {
+    width: 100%; /* Esto hace que cada campo ocupe el 100% del ancho del contenedor */
+    margin-bottom: 1em;
+    border: 1px solid green;
+    box-sizing: border-box; /* Asegura que el padding y el border no aumenten el tamaño del elemento */
+    padding: 5px; /* Reduce el padding para hacer la caja más pequeña */
+}
+
+.comercio-form .form-field:nth-child(8) {
+    text-align: center; /* Esto centra el texto del último campo */
+}
+
+.comercio-form .titulo-editar {
+    position: absolute; /* Permite que el elemento se posicione en relación a su contenedor padre */
+    top: 100px; /* Mueve "Editar comercio" más abajo */
+    left: 50px; /* Mueve "Editar comercio" más a la derecha */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.comercio-form .campo-etiqueta {
+    font-family: 'Montserrat', sans-serif; /* Cambia la fuente a Montserrat */
+    font-weight: bold; /* Hace que el texto sea en negrita */
+}
+
+.comercio-form .save-changes-button {
+    width: 142px;
+    height: 60px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto; /* Centra el botón en la página */
+}
+
+.comercio-form .save-changes-button:hover {
+    background-color: #64AD61; // Un verde más claro para el efecto hover
+}
+
+.titulo-editar {
+    padding-top: 40px; /* Aumenta este valor para mover "Editar perfil" más abajo */
+    padding-left: 70px; /* Aumenta este valor para mover "Editar perfil" más a la derecha */
+}
+
+.campo-etiqueta {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.boton-guardar {
+    width: 150px; /* Ancho del botón */
+    height: 50px; /* Altura del botón */
+    background-color: green; /* Fondo del botón */
+    color: #FFFFFF; /* Color del texto */
+    border: 1px solid green; /* Borde del botón */
+    font-family: 'Montserrat', sans-serif; /* Fuente del texto */
+    border-radius: 8px;
+}
+
+.boton-guardar:hover {
+    background-color: #64AD61; /* Fondo del botón en hover */
+}
+
+/* Media queries para hacer el formulario responsive */
+@media (max-width: 600px) {
+    .comercio-form .form-field-container {
+        flex-direction: column;
+    }
+
+    .comercio-form .form-field {
+        flex: 0 0 100%;
+    }
+
+    .comercio-form .titulo-editar {
+        top: 50px; /* Mueve "Editar comercio" más abajo en pantallas pequeñas */
+        left: 0; /* Centra "Editar comercio" en pantallas pequeñas */
+        text-align: center; /* Centra el texto de "Editar comercio" en pantallas pequeñas */
+    }
+}
+
+
+
 //Inicio Empresa
 
 body {
@@ -973,6 +1174,15 @@ body {
     right: 44px;
     width: 176px;
     background-color: green;
+}
+.subir-productos,
+.subir-productos:hover,
+.subir-productos:focus,
+.subir-productos:active {
+    background-color: #008000 !important; /* Esto cambia el color de fondo a un verde más oscuro */
+    border-color: #008000 !important; /* Esto cambia el color del borde a un verde más oscuro */
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 .seccion {
@@ -999,7 +1209,7 @@ body {
 }
 
 .producto img {
-    max-width: 80%; /* Establece el ancho máximo de la imagen al 100% del producto */
+    max-width: 60%; /* Establece el ancho máximo de la imagen al 100% del producto */
     height: auto; /* Establece la altura de la imagen a auto para mantener las proporciones */
     margin-bottom: auto;
     /* Resto de las propiedades... */
@@ -1019,11 +1229,282 @@ body {
     font-weight: bold;
 }
 
+.tabla-pedidos {
+    width: 60%; /* Ajusta este valor para cambiar el ancho de la tabla */
+    margin: 0 auto; /* Esto centra la tabla en la página */
+    margin-top: 60px;
+    
+}
 
+.tabla-pedidos td {
+    color: green; /* Cambia el color del texto a verde */
+    padding: 10px 5px;
+}
 
+.tabla-pedidos-grande {
+    width: 90%; /* Ajusta este valor para cambiar el ancho de la tabla */
 
+}
 
+.tabla-pedidos-grande td {
+    padding: 20px; /* Ajusta este valor para cambiar el espacio alrededor del contenido de las celdas */
+    padding-right: 10px;
+    border-bottom: 1px solid #000; /* Añade una línea de separación debajo de cada celda */
+}
 
+.guardar-producto,
+.guardar-producto:hover,
+.guardar-producto:focus,
+.guardar-producto:active {
+    background-color: #008000 !important; /* Esto cambia el color de fondo a un verde más oscuro */
+    border-color: #008000 !important; /* Esto cambia el color del borde a un verde más oscuro */
+    box-shadow: none !important; /* Esto elimina el borde azul */
+    outline: none !important; /* Esto elimina el flash azul */
+}
+
+/* Estilos generales */
+/* ... (tus estilos actuales) ... */
+
+/* Estilos para pantallas de hasta 600px de ancho */
+@media (max-width: 600px) {
+    .subir-productos {
+        position: static; /* Cambia la posición a static */
+        width: 100%; /* Hace que el botón ocupe todo el ancho */
+    }
+
+    .seccion {
+        padding-left: 20px; /* Reduce el padding izquierdo */
+        font-size: 20px; /* Reduce el tamaño de la fuente */
+    }
+
+    #productos-modal {
+        justify-content: center; /* Centra los productos */
+    }
+
+    .producto {
+        width: 80%; /* Hace que los productos sean más anchos */
+        margin-left: 0; /* Elimina el margen izquierdo */
+    }
+
+    .producto img {
+        max-width: 100%; /* Hace que las imágenes sean más anchas */
+    }
+
+    .producto h3 {
+        font-size: 18px; /* Reduce el tamaño de la fuente */
+    }
+
+    .producto p {
+        font-size: 12px; /* Reduce el tamaño de la fuente */
+    }
+
+    .tabla-pedidos,
+    .tabla-pedidos-grande {
+        width: 100%; /* Hace que las tablas ocupen todo el ancho */
+    }
+}
+
+//COMPRA ONLINE
+
+.titulo-compra-online {
+    margin-top: 50px;
+    text-align: left;
+    padding-left: 80px;
+}
+
+.form-busqueda, .form-filtrado {
+    margin-top: 20px;
+    width: 20%;
+    text-align: left;
+    margin-left: 5%;
+    display: flex; /* Esto hará que los elementos hijos se alineen en una fila */
+}
+
+.button-busqueda, .button-filtrado {
+    background: none;
+    border: none;
+    color: green; /* Cambia el color del icono de la lupa a verde */
+    padding: 10px; /* Añade un poco de padding para hacer el botón más grande */
+}
+
+.input-busqueda, .input-filtrado {
+    flex-grow: 1; /* Esto hará que el campo de entrada ocupe todo el espacio disponible */
+    margin-right: 10px; /* Esto agregará un margen a la derecha del campo de entrada */
+}
+
+.fas.fa-search {
+    font-size: 16px;
+}
+
+.producto-info {
+    display: flex;
+    align-items: center;
+}
+
+.producto-info h3 {
+    margin-right: 10px; /* Esto agrega un margen a la derecha del nombre del producto */
+}
+
+.add-to-cart-icon {
+    background: none;
+    border: none;
+    color: green; /* Cambia el color del icono del carrito de compras a verde */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa por encima del icono */
+}
+
+/* Estilos generales */
+/* ... (tus estilos actuales) ... */
+
+/* Estilos para pantallas de hasta 600px de ancho */
+@media (max-width: 600px) {
+    .titulo-compra-online {
+        padding-left: 20px; /* Reduce el padding izquierdo */
+    }
+
+    .form-busqueda, .form-filtrado {
+        width: 100%; /* Hace que los formularios ocupen todo el ancho */
+        margin-left: 0; /* Elimina el margen izquierdo */
+        flex-direction: column; /* Cambia la dirección de los elementos a una columna */
+    }
+
+    .input-busqueda, .input-filtrado {
+        margin-right: 0; /* Elimina el margen derecho */
+        margin-bottom: 10px; /* Añade un margen debajo del campo de entrada */
+    }
+
+    .producto-info {
+        flex-direction: column; /* Cambia la dirección de los elementos a una columna */
+        text-align: center; /* Centra el texto */
+    }
+
+    .producto-info h3 {
+        margin-right: 0; /* Elimina el margen derecho */
+    }
+}
+
+//CARRITO
+
+.carrito-titulo {
+    margin-left: 60px; /* Esto agrega un margen a la izquierda del texto "Carrito" */
+    margin-top: 30px; /* Esto agrega un margen entre el texto "Carrito" y el header */
+}
+
+.carrito-producto-info {
+    display: flex;
+    align-items: center;
+}
+
+.carrito-producto-info h3 {
+    margin-right: 10px; /* Esto agrega un margen a la derecha del nombre del producto */
+}
+
+.delete-icon {
+    background: none;
+    border: none;
+    color: green; /* Cambia el color del icono de eliminación a verde */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa por encima del icono */
+}
+
+.actualizar-btn {
+    background-color: white; /* Fondo blanco */
+    color: green; /* Texto verde */
+    border: 1px solid green; /* Borde verde */
+    cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa por encima del botón */
+    margin-top: 5px; /* Agrega más separación entre la caja y el botón */
+    padding: 2px 10px; /* Hace el botón un poco más ancho */
+    border-radius: 5px; /* Redondea las esquinas del botón */
+}
+
+.actualizar-btn:hover {
+    background-color: #64AD61; /* Cambia el fondo a #64AD61 cuando se pasa por encima del botón */
+    color: white; /* Cambia el texto a blanco cuando se pasa por encima del botón */
+}
+
+#total-pedido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px; /* Esto agrega un poco de separación entre el total y el botón y el resto del contenido */
+}
+
+ #total-pedido p {
+    font-size: 3em !important; /* Esto aumenta el tamaño de la letra del total */
+    font-weight: bold !important;
+    color: green;
+}
+
+#pedido-form {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Esto asegura que el formulario ocupe todo el ancho disponible */
+}
+
+#realizar-pedido {
+    margin-top: 20px; /* Esto agrega más separación entre el total y el botón de realizar pedido */
+    background-color: white !important; /* Esto hace que el fondo del botón sea blanco */
+    color: green !important; /* Esto hace que el texto del botón sea verde */
+    border: 2px solid green !important; /* Esto hace que el borde del botón sea verde */
+    border-radius: 10px !important; /* Esto redondea las esquinas del botón */
+    font-size: 1.5em !important; /* Esto hace que el texto del botón sea más grande */
+    padding: 10px 20px !important; /* Esto hace que el botón sea un poco más grande */
+} 
+
+#realizar-pedido:hover {
+    background-color: #64AD61 !important; /* Cambia el color de fondo a un verde más claro cuando se pasa el ratón por encima */
+    color: white !important; /* Cambia el color del texto a blanco cuando se pasa el ratón por encima */
+}
+
+/* Estilos para pantallas de tamaño pequeño (menos de 480px) */
+@media (max-width: 480px) {
+    .carrito-producto-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #realizar-pedido {
+        font-size: 0.8em !important; /* Reduce el tamaño del texto del botón */
+        padding: 5px 10px !important; /* Reduce el tamaño del botón */
+    }
+
+    #total-pedido p {
+        font-size: 1.5em !important; /* Reduce el tamaño del texto del total */
+    }
+}
+
+/* Estilos para pantallas de tamaño mediano (entre 480px y 768px) */
+@media (min-width: 480px) and (max-width: 768px) {
+    .carrito-producto-info {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #realizar-pedido {
+        font-size: 1em !important; /* Aumenta el tamaño del texto del botón */
+        padding: 7px 14px !important; /* Aumenta el tamaño del botón */
+    }
+
+    #total-pedido p {
+        font-size: 2em !important; /* Aumenta el tamaño del texto del total */
+    }
+}
+
+/* Estilos para pantallas de tamaño grande (más de 768px) */
+@media (min-width: 768px) {
+    .carrito-producto-info {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #realizar-pedido {
+        font-size: 1.2em !important; /* Aumenta el tamaño del texto del botón */
+        padding: 10px 20px !important; /* Aumenta el tamaño del botón */
+    }
+
+    #total-pedido p {
+        font-size: 2.5em !important; /* Aumenta el tamaño del texto del total */
+    }
+}
 
 
 

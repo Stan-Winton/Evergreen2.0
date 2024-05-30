@@ -1,47 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Compra online</h1>
+    <h1 class="titulo-compra-online">Compra online</h1>
 
-    <form action="{{ path('compra_online') }}" method="get">
-        <input type="text" name="q" placeholder="Buscar productos...">
-        <button type="submit">
+    <form action="{{ path('compra_online') }}" method="get" class="form-busqueda">
+        <input type="text" name="q" placeholder="Buscar productos..." class="input-busqueda">
+        <button type="submit" class="button-busqueda">
             <i class="fas fa-search"></i>
         </button>
     </form>
 
-    <form action="{{ path('compra_online') }}" method="get">
-        <select name="tipoProducto">
+    <form action="{{ path('compra_online') }}" method="get" class="form-filtrado">
+        <select name="tipoProducto" class="input-filtrado">
             <option value="">Todos los tipos</option>
             {% for tipo in tiposProducto %}
                 <option value="{{ tipo }}">{{ tipo }}</option>
             {% endfor %}
         </select>
-        <button type="submit">Filtrar</button>
+        <button type="submit" class="button-filtrado">Filtrar</button>
     </form>
 
     <div id="productos-modal">
     {% if productos is defined %}
         {% if productos|length == 0 and busquedaRealizada %}
-            <p>No hay productos disponibles en esta categoría.</p> <!-- Cambio aquí -->
+            <p>No hay productos disponibles en esta categoría.</p>
         {% else %}
             {% for producto in productos %}
                 <div class="producto" data-category="{{ producto.getTipoProducto() }}">
                     <img src="{{ asset('uploads/' ~ producto.imagen) }}" alt="{{ producto.nombre }}">
-                    <h3>{{ producto.nombre }}</h3>
+                    <div class="producto-info">
+                        <h3>{{ producto.nombre }}</h3>
+                        <form method="post" action="{{ path('agregar_al_carrito', {id: producto.id}) }}">
+                            <input type="hidden" name="cantidad" value="1">
+                            <button type="submit" class="add-to-cart-icon" data-id="{{ producto.id }}">
+                                <i class="fas fa-shopping-cart"></i>   
+                            </button>
+                        </form>
+                    </div>
                     <p>{{ producto.descripcion }}</p>
                     <p>{{ producto.precio }} Euros</p>
                     <p id="stock-{{ producto.id }}">Stock: {{ producto.stock }}</p>
-                    <form method="post" action="{{ path('agregar_al_carrito', {id: producto.id}) }}">
-                        <input type="hidden" name="cantidad" value="1">
-                        <button type="submit" class="add-to-cart" data-id="{{ producto.id }}">
-                            <i class="fas fa-shopping-cart"></i>   
-                        </button>
-                    </form>
                 </div>
             {% endfor %}
         {% endif %}
     {% endif %}
     </div>
-    {% block footer %}{% endblock %}
 {% endblock %}
