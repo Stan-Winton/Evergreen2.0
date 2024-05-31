@@ -12,7 +12,7 @@
 
     <div id="carrito">
     {% for producto in productos %}
-        <div class="producto">
+        <div class="producto-en-fila">
             <img src="{{ asset('uploads/' ~ producto.imagen) }}" alt="{{ producto.nombre }}">
             <div class="producto-info">
                 <h3>{{ producto.nombre }}</h3>

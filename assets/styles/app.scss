@@ -7,7 +7,6 @@
 }
 
 /*HEADER*/
-/* Asegura que el encabezado ocupe toda la pantalla */
 #encabezado {
     width: 100%;
     display: flex;
@@ -23,17 +22,16 @@
     margin: 0 50px;
 }
 
-/* Cambia el color de fondo del botón de iniciar sesión a verde y la letra a blanca */
+
 .btn-outline-success {
     background-color: green;
     color: white;
 }
 
-/* Cambia el color del icono del carrito a verde */
 .carrito-btn {
     border: none;
     margin-left: 50px;
-    background-color: transparent; /* Asegura que el color de fondo es transparente */
+    background-color: transparent; 
 
     .fas.fa-shopping-cart {
         color: green;
@@ -41,9 +39,9 @@
     } 
 
     &:hover {
-        background-color: transparent; /* Asegura que el color de fondo es transparente en hover */
+        background-color: transparent; 
         .fas.fa-shopping-cart {
-            color: #81B97D; /* Cambia el color del icono a un verde más claro cuando se pasa el ratón por encima */
+            color: #81B97D; 
         }
     }
 }
@@ -54,9 +52,8 @@
     outline: none;
 }
 
-//HEADER2
+/*HEADER*/
 
-/* Añade 40px de margen a la izquierda del logo */
 .navbar-brand.logo {
     margin-left: 40px;
 }
@@ -87,22 +84,21 @@
     grid-area: profile;
 }
 
-/* Estilos para pantallas de hasta 600px de ancho */
+
 @media (max-width: 600px) {
     .navbar-brand.logo {
-        margin-left: 20px; /* Reduce el margen izquierdo */
+        margin-left: 20px; 
     }
 
     .btn.btn-outline-success.nav-item-custom {
-        margin-right: 20px; /* Reduce el margen derecho */
+        margin-right: 20px; 
     }
 
     .container-fluid {
         grid-template-areas: 
             "logo"
             "nav"
-            "profile"; /* Cambia la disposición de la cuadrícula para que cada área esté en su propia fila */
-        grid-template-columns: 1fr; /* Hace que cada área ocupe todo el ancho de la cuadrícula */
+            "profile"; 
     }
 }
 
@@ -112,15 +108,15 @@
 /*FOOTER*/
 #pie {
     flex-shrink: 0;
-    background-color: green; // Cambia el color de fondo a verde
-    color: white; // Cambia el color de la letra a blanco
-    text-align: center; // Centra el contenido del pie de página
+    background-color: green; 
+    color: white; 
+    text-align: center;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    margin-top: auto; // Hace que el pie de página tenga el ancho completo
+    margin-top: auto; 
 }
-//HOME 
+/*HOME*/ 
 .content {
     min-height: 100vh;
     display: flex;
@@ -128,45 +124,43 @@
 }
 /*CAROUSEL*/
 .carousel-inner {
-    height: 50vh; // Ajusta este valor según tus necesidades
+    height: 50vh; 
 }
 
-/* Media query for screens smaller than 768px */
+
 @media (max-width: 767px) {
     .carousel-inner {
-        height: 20vh; // Reduce the height of the carousel on smaller screens
+        height: 20vh; 
     }
 }
 
 /*CARDS*/
 
-/* Establece el tamaño de las tarjetas y permite que se adapten a pantallas pequeñas */
+
 .same-width .card {
     width: 611px;
     height: auto;
     font-family: 'Montserrat', sans-serif;
-    border: none; // Elimina el borde de las tarjetas
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Añade un sombreado a las tarjetas
+    border: none; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
-/* Establece el margen de las imágenes dentro de las tarjetas */
+
 .same-width .card img {
     width: 100%;
     height: auto;
-    margin: 10px; // Ajusta este valor según tus necesidades
-    object-fit: contain; // Ajusta la imagen para que se ajuste al tamaño de la tarjeta
+    margin: 10px; 
+    object-fit: contain; 
 }
 
-/* Establece la letra del título en negrita */
+
 .same-width .card .card-title {
-    font-weight: bold; // Hace que la letra del título sea en negrita
+    font-weight: bold; 
 }
 
-/* Establece el tamaño, las esquinas y la posición de los botones */
+
 .same-width .btn-primary {
-   padding: 10px 20px; // Ajusta este valor según tus necesidades
-    border-radius: 10%; // Hace que los botones no tengan esquinas
-    margin-top: 20px; // Hace que los botones estén más bajos
+   padding: 10px 20px; 
     margin-left: 50px;
     border:none;
     background-color: green;
@@ -186,59 +180,58 @@
 
 /*CONTACTO*/
 
-/* Establece el estilo del título y el párrafo */
+
 h1.titulo-24, .mb-3.mb-md-0 p {
-    margin-top: 50px; /* Ajusta este valor según tus necesidades */
+    margin-top: 50px; 
 }
 
-/* Establece el estilo de la imagen */
+
 .col-12.col-md-6.order-1.order-md-3.offset-md-1 img {
-    margin-top: 50px; /* Ajusta este valor según tus necesidades */
+    margin-top: 50px; 
 }
 
-/* Establece el estilo de los campos de entrada del formulario */
 #contact-form input[type="text"], 
 #contact-form input[type="email"], 
 #contact-form textarea {
     display: block;
     width: 100%;
-    border: 1px solid green; /* Establece el borde de color verde */
-    border-radius: 0; /* Hace que los campos de entrada sean rectangulares sin esquinas */
+    border: 1px solid green; 
+    border-radius: 0; 
     margin-bottom: 20px;
     padding: 10px;
 }
 
-/* Establece el estilo del botón de envío */
+
 #contact-form input[type="submit"],
 #contact-form button,
 #contact-form input[type="button"] {
-    background-color: green; /* Establece el color de fondo a verde */
-    color: white; /* Establece el color de la letra a blanco */
+    background-color: green; 
+    color: white; 
     border: none;
-    border-radius: 10px; /* Hace que el botón sea rectangular sin esquinas */
+    border-radius: 10px; 
     padding: 10px 20px;
 }
 
 #contact-form {
-    margin-bottom: 50px; /* Ajusta este valor según tus necesidades */
+    margin-bottom: 50px; 
 }
 
 
-/* Estilos para pantallas pequeñas */
+
 @media (max-width: 576px) {
     h5.titulo-24, .mb-3.mb-md-0 p, .col-12.col-md-6.order-1.order-md-3.offset-md-1 img {
-        margin-left: 20px; /* Añade margen a la izquierda */
-        margin-right: 20px; /* Añade margen a la derecha */
+        margin-left: 20px; 
+        margin-right: 20px; 
     }
 }
 
 /*CONOCENOS*/
 
-/* Estilo para la imagen principal */
+
 .image-container {
     display: flex;
     justify-content: center;
-    margin: 2%; /* Ajusta este valor según tus necesidades */
+    margin: 2%; 
 }
 
 .image-container img {
@@ -246,33 +239,33 @@ h1.titulo-24, .mb-3.mb-md-0 p {
     height: auto;
 }
 
-/* Estilo para las secciones de contenido */
+
 .content-section {
     display: flex;
     justify-content: space-between;
     width: 96%;
-    margin: 20px auto; /* Ajusta este valor según tus necesidades */
+    margin: 20px auto; 
 }
 
 .text-section {
     flex: 1;
-    margin-right: 10px; /* Ajusta este valor según tus necesidades */
+    margin-right: 10px;
 }
 
 .image-section {
     flex: 1;
-    margin-left: 10px; /* Ajusta este valor según tus necesidades */
+    margin-left: 10px;
     margin-bottom: 100px;
 }
 
 
 .first-image {
-    margin-top: 50px; /* Ajusta este valor según tus necesidades */
+    margin-top: 50px; 
     align-self: flex-start;
 }
 
 
-/* Estilos para pantallas pequeñas */
+
 @media (max-width: 576px) {
     .content-section {
         flex-direction: column;
@@ -286,7 +279,7 @@ h1.titulo-24, .mb-3.mb-md-0 p {
 /*AYUDA*/
 
 h2.subtitulo {
-    margin-top: 50px; /* Ajusta este valor según tus necesidades */
+    margin-top: 50px; 
 }
 
 .container {
@@ -299,7 +292,7 @@ h2.subtitulo {
 }
 
 #acordeonPedidos, #acordeonProductos {
-    margin-bottom: 35px; // Ajusta este valor según tus necesidades
+    margin-bottom: 35px; 
 }
 
 .titulo-ayuda, .subtitulo {
@@ -344,7 +337,7 @@ h2.subtitulo {
     font-family: 'Montserrat', sans-serif;
     color: #5C9738;
 }
-//COMPRA
+/*COMPRA*/
 
 .header-text {
     font-family: 'Montserrat', sans-serif;
@@ -377,7 +370,7 @@ h2.subtitulo {
 }
 
 .titulo-caja:first-of-type {
-    margin-bottom: 0; /* Ajusta este valor según tus necesidades */
+    margin-bottom: 0; 
 }
 
 .codigo-postal {
@@ -392,9 +385,9 @@ h2.subtitulo {
     &:focus,
     &:active,
     &:focus:active {
-        background-color: #81B97D !important; /* Cambia el color de fondo a un verde más claro cuando se pasa el ratón por encima, está enfocado o activo */
-        border-color: #81B97D !important; /* Cambia el color del borde a un verde más claro cuando está activo */
-        outline: none !important; /* Elimina el borde azul cuando el botón está enfocado */
+        background-color: #81B97D !important; 
+        border-color: #81B97D !important; 
+        outline: none !important; 
     }
 }
 
@@ -442,6 +435,16 @@ h2.subtitulo {
    
 }
 
+.error-message {
+    color: red;
+    font-weight: bold;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
 .espacio-footer {
     margin-top: 70px;
 }
@@ -465,7 +468,7 @@ h2.subtitulo {
 
 .login-box .input-field {
     width: 424px;
-    height: 50px; /* Reemplaza 'hug' con un valor válido */
+    height: 50px; 
     background-color: white;
     border-radius: 10px;
     margin: 20px 0;
@@ -489,7 +492,7 @@ h2.subtitulo {
 
 .login-box .button {
     width: 424px;
-    height: 50px; /* Reemplaza 'hug' con un valor válido */
+    height: 50px; 
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -513,7 +516,7 @@ h2.subtitulo {
     text-align: center;
 }
 
-/* Responsive design */
+
 @media (max-width: 600px) {
     .login-box {
         width: 90%;
@@ -560,7 +563,7 @@ h2.subtitulo {
 .login2-box .form-title {
     margin-top: 20px;
     text-align: center;
-    font-family: 'Montserrat', sans-serif; // Añade esta línea
+    font-family: 'Montserrat', sans-serif; 
 }
 
 .login2-box form div {
@@ -597,7 +600,7 @@ h2.subtitulo {
     background-color: #909090;
 }
 
-/* Responsive design */
+
 @media (max-width: 600px) {
     .login2-box {
         width: 90%;
@@ -635,7 +638,7 @@ h2.subtitulo {
 .form-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 32px;
-    margin-bottom: 20px; /* Agrega un margen entre el título y el formulario */
+    margin-bottom: 20px; 
 }
 
 .form-container {
@@ -645,14 +648,14 @@ h2.subtitulo {
         align-items: center;
         width: 90%;
         max-width: 568px;
-        margin-top: 40px; /* Mueve el formulario más arriba */
+        margin-top: 40px; 
     }
 
     input[type="text"],
     input[type="password"],
     input[type="email"],
     select,
-    input[type="date"] { /* Asegura que el campo de fecha tenga el mismo estilo */
+    input[type="date"] { 
         width: 100%;
         height: 40px;
         border: none;
@@ -662,30 +665,30 @@ h2.subtitulo {
         margin-bottom: 15px;
 
         &:last-of-type {
-            margin-bottom: 30px; /* Añade un margen adicional al último campo */
+            margin-bottom: 30px; 
         }
     }
 
     .form-button {
         width: 435px;
         height: auto;
-        margin-right: 16px; /* Agrega un margen a la derecha de cada botón */
-        margin-bottom: 30px; /* Agrega un margen en la parte inferior de los botones */
-        font-family: 'Montserrat', sans-serif; /* Establece la fuente de los botones a Montserrat */
+        margin-right: 16px; 
+        margin-bottom: 30px; 
+        font-family: 'Montserrat', sans-serif; 
     }
 
     .form-button + .form-button {
-        margin-left: 16px; /* Agrega un margen a la izquierda del segundo botón */
+        margin-left: 16px; 
     }
 
     .btn-gris {
-        background-color: #808080; /* Color de fondo gris */
-        color: #FFFFFF; /* Color de texto blanco */
-        border-color: #808080; /* Color de borde gris */
+        background-color: #808080; 
+        color: #FFFFFF; 
+        border-color: #808080; 
     
         &:hover {
-            background-color: #606060; /* Color de fondo gris oscuro cuando el ratón pasa por encima */
-            border-color: #606060; /* Color de borde gris oscuro cuando el ratón pasa por encima */
+            background-color: #606060; 
+            border-color: #606060; 
         }
     }
 
@@ -720,9 +723,9 @@ input[type="date"] {
     align-items: center;
     justify-content: flex-start;
     position: absolute;
-    top: 10%; /* Ajusta esto según tus necesidades */
+    top: 10%; 
     left: 50%;
-    transform: translate(-50%, -10%); /* Ajusta esto según tus necesidades */
+    transform: translate(-50%, -10%); 
     padding-top: 20px;
 
     form {
@@ -731,22 +734,22 @@ input[type="date"] {
         align-items: center;
         width: 90%;
         max-width: 568px;
-        margin-top: 40px; /* Mueve el formulario más arriba */
+        margin-top: 40px; 
     }
 }
 
 .btn-gray {
-    background-color: #808080; /* Color de fondo gris */
-    color: #FFFFFF; /* Color de texto blanco */
-    border-color: #808080; /* Color de borde gris */
+    background-color: #808080; 
+    color: #FFFFFF; 
+    border-color: #808080; 
 
     &:hover {
-        background-color: #606060; /* Color de fondo gris oscuro cuando el ratón pasa por encima */
-        border-color: #606060; /* Color de borde gris oscuro cuando el ratón pasa por encima */
+        background-color: #606060; 
+        border-color: #606060; 
     }
 }
 
-// Perfil
+/*PERFIL*/
 
 .profile-container {
     display: flex;
@@ -838,7 +841,7 @@ input[type="date"] {
 
 .button-edit-profile:hover {
     background-color: #64AD61;
-    // No hay cambio de color en el hover
+    
 }
 
 .button-add-image, .button-add-image:visited {
@@ -860,10 +863,10 @@ input[type="date"] {
 
 .button-logout:hover {
     background-color: #64AD61;
-    // No hay cambio de color en el hover
+    
 }
 
-// Estilos para pantallas pequeñas (móviles)
+
 @media (max-width: 600px) {
     .profile-container {
         flex-direction: column;
@@ -887,7 +890,7 @@ input[type="date"] {
     }
 }
 
-// Estilos para pantallas medianas (tabletas)
+
 @media (min-width: 601px) and (max-width: 900px) {
     .profile-container {
         flex-direction: column;
@@ -911,7 +914,7 @@ input[type="date"] {
     }
 }
 
-//Perfil comercio
+/*PERFIL COMERCIO*/
 
 .commerce-profile-container {
     max-width: 600px;
@@ -966,37 +969,37 @@ input[type="date"] {
     color: #fff;
 }
 
-/* Estilos para pantallas de hasta 600px de ancho */
+
 @media (max-width: 600px) {
     .commerce-profile-container {
-        padding: 10px; /* Reduce el padding */
+        padding: 10px; 
     }
 
     .commerce-profile-title {
-        font-size: 20px; /* Reduce el tamaño de la fuente */
-        margin-left: 0; /* Elimina el margen izquierdo */
+        font-size: 20px; 
+        margin-left: 0; 
     }
 
     .commerce-profile-field {
-        font-size: 14px; /* Reduce el tamaño de la fuente */
+        font-size: 14px; 
     }
 
     .commerce-profile-button {
-        padding: 5px 10px; /* Reduce el padding */
+        padding: 5px 10px; 
     }
 }
-//EDITAR PERFIL
+/*EDITAR PERFIL*/
 
 .form-field-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 600px; /* Ajusta este valor para cambiar el ancho total del formulario */
-    margin: 50px auto; /* Esto centra el formulario en la página y lo mueve 50px hacia abajo */
+    max-width: 600px; 
+    margin: 50px auto; 
 }
 
 .form-field {
-    flex: 0 0 45%; /* Esto hace que cada campo ocupe aproximadamente la mitad de la fila, permitiendo 2 campos por fila */
+    flex: 0 0 45%; 
     margin-bottom: 1em;
 }
 
@@ -1005,18 +1008,18 @@ input[type="date"] {
 }
 
 .form-field:nth-child(5) {
-    flex: 0 0 100%; /* Esto hace que el último campo ocupe el 100% del ancho, centrándolo en la fila */
-    text-align: center; /* Esto centra el texto del último campo */
+    flex: 0 0 100%; 
+    text-align: center;
 }
 
 .titulo-editar {
-    margin-top: 50px; /* Esto mueve "Editar usuario" 50px hacia abajo */
-    margin-left: 150px; /* Esto mueve "Editar usuario" 50px hacia la derecha */
+    margin-top: 50px; 
+    margin-left: 150px; 
 }
 
 .campo-etiqueta {
-    font-family: 'Montserrat', sans-serif; /* Esto cambia la fuente a Montserrat */
-    font-weight: bold; /* Esto hace que el texto sea en negrita */
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold; 
 }
 
 .save-changes-button {
@@ -1029,14 +1032,14 @@ input[type="date"] {
     font-size: 16px;
     transition: background-color 0.3s ease;
     display: block;
-    margin: 0 auto; /* Esto centra el botón en la página */
+    margin: 0 auto; 
 }
 
 .save-changes-button:hover {
-    background-color: #64AD61; // Un verde más claro para el efecto hover
+    background-color: #64AD61; 
 }
 
-// Media queries para hacer el formulario responsive
+
 @media (max-width: 600px) {
     .form-field-container {
         flex-direction: column;
@@ -1058,41 +1061,41 @@ input[type="date"] {
 .comercio-form {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra los elementos hijos horizontalmente */
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
-    position: relative; /* Permite que los hijos posicionados de forma absoluta se posicionen en relación a este elemento */
+    align-items: center; 
+    width: 100%; 
+    position: relative; 
 }
 
 .comercio-form .form-field-container {
     display: flex;
-    flex-direction: column; /* Asegura que los campos se apilen verticalmente */
-    max-width: 300px; /* Ajusta este valor para cambiar el ancho total del formulario */
-    width: 100%; /* Asegura que el contenedor de los campos ocupe todo el ancho disponible */
-    margin: 50px auto; /* Esto centra el formulario en la página y lo mueve 50px hacia abajo */
+    flex-direction: column; 
+    max-width: 300px; 
+    width: 100%; 
+    margin: 50px auto; 
 }
 
 .comercio-form .form-field {
-    width: 100%; /* Esto hace que cada campo ocupe el 100% del ancho del contenedor */
+    width: 100%; 
     margin-bottom: 1em;
     border: 1px solid green;
-    box-sizing: border-box; /* Asegura que el padding y el border no aumenten el tamaño del elemento */
-    padding: 5px; /* Reduce el padding para hacer la caja más pequeña */
+    box-sizing: border-box; 
+    padding: 5px; 
 }
 
 .comercio-form .form-field:nth-child(8) {
-    text-align: center; /* Esto centra el texto del último campo */
+    text-align: center; 
 }
 
 .comercio-form .titulo-editar {
-    position: absolute; /* Permite que el elemento se posicione en relación a su contenedor padre */
-    top: 100px; /* Mueve "Editar comercio" más abajo */
-    left: 50px; /* Mueve "Editar comercio" más a la derecha */
-    text-align: left; /* Alinea el texto a la izquierda */
+    position: absolute; 
+    top: 100px; 
+    left: 50px; 
+    text-align: left;
 }
 
 .comercio-form .campo-etiqueta {
-    font-family: 'Montserrat', sans-serif; /* Cambia la fuente a Montserrat */
-    font-weight: bold; /* Hace que el texto sea en negrita */
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold; 
 }
 
 .comercio-form .save-changes-button {
@@ -1105,16 +1108,16 @@ input[type="date"] {
     font-size: 16px;
     transition: background-color 0.3s ease;
     display: block;
-    margin: 0 auto; /* Centra el botón en la página */
+    margin: 0 auto; 
 }
 
 .comercio-form .save-changes-button:hover {
-    background-color: #64AD61; // Un verde más claro para el efecto hover
+    background-color: #64AD61; 
 }
 
 .titulo-editar {
-    padding-top: 40px; /* Aumenta este valor para mover "Editar perfil" más abajo */
-    padding-left: 70px; /* Aumenta este valor para mover "Editar perfil" más a la derecha */
+    padding-top: 40px; 
+    padding-left: 70px; 
 }
 
 .campo-etiqueta {
@@ -1123,20 +1126,20 @@ input[type="date"] {
 }
 
 .boton-guardar {
-    width: 150px; /* Ancho del botón */
-    height: 50px; /* Altura del botón */
-    background-color: green; /* Fondo del botón */
-    color: #FFFFFF; /* Color del texto */
-    border: 1px solid green; /* Borde del botón */
-    font-family: 'Montserrat', sans-serif; /* Fuente del texto */
+    width: 150px; 
+    height: 50px; 
+    background-color: green; 
+    color: #FFFFFF; 
+    border: 1px solid green; 
+    font-family: 'Montserrat', sans-serif; 
     border-radius: 8px;
 }
 
 .boton-guardar:hover {
-    background-color: #64AD61; /* Fondo del botón en hover */
+    background-color: #64AD61; 
 }
 
-/* Media queries para hacer el formulario responsive */
+
 @media (max-width: 600px) {
     .comercio-form .form-field-container {
         flex-direction: column;
@@ -1147,15 +1150,15 @@ input[type="date"] {
     }
 
     .comercio-form .titulo-editar {
-        top: 50px; /* Mueve "Editar comercio" más abajo en pantallas pequeñas */
-        left: 0; /* Centra "Editar comercio" en pantallas pequeñas */
-        text-align: center; /* Centra el texto de "Editar comercio" en pantallas pequeñas */
+        top: 50px; 
+        left: 0; 
+        text-align: center; 
     }
 }
 
 
 
-//Inicio Empresa
+/*INICIO EMPRESA*/
 
 body {
     display: flex;
@@ -1179,132 +1182,129 @@ body {
 .subir-productos:hover,
 .subir-productos:focus,
 .subir-productos:active {
-    background-color: #008000 !important; /* Esto cambia el color de fondo a un verde más oscuro */
-    border-color: #008000 !important; /* Esto cambia el color del borde a un verde más oscuro */
+    background-color: #008000 !important; 
+    border-color: #008000 !important; 
     box-shadow: none !important;
     outline: none !important;
 }
 
 .seccion {
-    position: relative; /* Permite posicionar el título en relación a su contenedor más cercano con posición relativa */
-    top: 64px; /* Mueve el título 64px hacia abajo desde la parte superior del contenedor */
-    padding-left: 95px; /* Mueve el título 44px hacia la derecha desde la parte izquierda del contenedor */
-    font-family: 'Montserrat', sans-serif; /* Cambia la fuente a Montserrat */
-    font-size: 24px; /* Cambia el tamaño de la fuente a 24px */
-    font-weight: bold; /* Hace la fuente negrita */
+    position: relative; 
+    top: 64px; 
+    padding-left: 95px; 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 24px; 
+    font-weight: bold; 
 }
 
 #productos-modal {
-    display: flex; /* Establece el contenedor de productos como un contenedor flexible */
-    flex-wrap: wrap; /* Permite que los productos se envuelvan a la siguiente línea si no caben en una sola */
-    justify-content: space-between; /* Distribuye el espacio restante entre los productos */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
     margin-top: 100px;
+    padding-left: 115px;
 }
 
 .producto {
     display: flex;
     flex-direction: column;
-    width: 18%; /* Establece el ancho del producto al 18% del contenedor padre para que quepan 5 en una fila */
-    margin-left: 115px;
+    width: 20%;
 }
 
 .producto img {
-    max-width: 60%; /* Establece el ancho máximo de la imagen al 100% del producto */
-    height: auto; /* Establece la altura de la imagen a auto para mantener las proporciones */
+    max-width: 60%; 
+    height: auto; 
     margin-bottom: auto;
-    /* Resto de las propiedades... */
+    
 }
 
 .producto h3 {
-    font-family: 'Montserrat', sans-serif; /* Cambia la fuente a Montserrat */
+    font-family: 'Montserrat', sans-serif; 
     color: black;
-    font-size: 20px; /* Cambia el tamaño de la fuente a 18px */
-    font-weight: bold; /* Hace que el texto sea negrita */
+    font-size: 20px; 
+    font-weight: bold; 
 }
 
 .producto p {
-    color: green; /* Cambia el color del texto a negro */
-    font-family: 'Montserrat', sans-serif; /* Cambia la fuente a Montserrat */
-    font-size: 14px; /* Cambia el tamaño de la fuente a 14px */
+    color: green; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; 
     font-weight: bold;
 }
 
 .tabla-pedidos {
-    width: 60%; /* Ajusta este valor para cambiar el ancho de la tabla */
-    margin: 0 auto; /* Esto centra la tabla en la página */
+    width: 60%; 
+    margin: 0 auto; 
     margin-top: 60px;
     
 }
 
 .tabla-pedidos td {
-    color: green; /* Cambia el color del texto a verde */
+    color: green; 
     padding: 10px 5px;
 }
 
 .tabla-pedidos-grande {
-    width: 90%; /* Ajusta este valor para cambiar el ancho de la tabla */
+    width: 90%; 
 
 }
 
 .tabla-pedidos-grande td {
-    padding: 20px; /* Ajusta este valor para cambiar el espacio alrededor del contenido de las celdas */
-    padding-right: 10px;
-    border-bottom: 1px solid #000; /* Añade una línea de separación debajo de cada celda */
+    padding: 20px;     padding-right: 10px;
+    border-bottom: 1px solid #000; 
 }
 
 .guardar-producto,
 .guardar-producto:hover,
 .guardar-producto:focus,
 .guardar-producto:active {
-    background-color: #008000 !important; /* Esto cambia el color de fondo a un verde más oscuro */
-    border-color: #008000 !important; /* Esto cambia el color del borde a un verde más oscuro */
-    box-shadow: none !important; /* Esto elimina el borde azul */
-    outline: none !important; /* Esto elimina el flash azul */
+    background-color: #008000 !important; 
+    border-color: #008000 !important; 
+    box-shadow: none !important; 
+    outline: none !important; 
 }
 
-/* Estilos generales */
-/* ... (tus estilos actuales) ... */
 
-/* Estilos para pantallas de hasta 600px de ancho */
+
 @media (max-width: 600px) {
     .subir-productos {
-        position: static; /* Cambia la posición a static */
-        width: 100%; /* Hace que el botón ocupe todo el ancho */
+        position: static; 
+        width: 100%; 
     }
 
     .seccion {
-        padding-left: 20px; /* Reduce el padding izquierdo */
-        font-size: 20px; /* Reduce el tamaño de la fuente */
+        padding-left: 20px; 
+        font-size: 20px; 
     }
 
     #productos-modal {
-        justify-content: center; /* Centra los productos */
+        justify-content: center; 
     }
 
     .producto {
-        width: 80%; /* Hace que los productos sean más anchos */
-        margin-left: 0; /* Elimina el margen izquierdo */
+        width: 80%; 
+        margin-left: 0; 
     }
 
     .producto img {
-        max-width: 100%; /* Hace que las imágenes sean más anchas */
+        max-width: 100%; 
     }
 
     .producto h3 {
-        font-size: 18px; /* Reduce el tamaño de la fuente */
+        font-size: 18px; 
     }
 
     .producto p {
-        font-size: 12px; /* Reduce el tamaño de la fuente */
+        font-size: 12px; 
     }
 
     .tabla-pedidos,
     .tabla-pedidos-grande {
-        width: 100%; /* Hace que las tablas ocupen todo el ancho */
+        width: 100%; 
     }
 }
 
-//COMPRA ONLINE
+/*COMPRA ONLINE*/
 
 .titulo-compra-online {
     margin-top: 50px;
@@ -1317,19 +1317,19 @@ body {
     width: 20%;
     text-align: left;
     margin-left: 5%;
-    display: flex; /* Esto hará que los elementos hijos se alineen en una fila */
+    display: flex; 
 }
 
 .button-busqueda, .button-filtrado {
     background: none;
     border: none;
-    color: green; /* Cambia el color del icono de la lupa a verde */
-    padding: 10px; /* Añade un poco de padding para hacer el botón más grande */
+    color: green; 
+    padding: 10px; 
 }
 
 .input-busqueda, .input-filtrado {
-    flex-grow: 1; /* Esto hará que el campo de entrada ocupe todo el espacio disponible */
-    margin-right: 10px; /* Esto agregará un margen a la derecha del campo de entrada */
+    flex-grow: 1; 
+    margin-right: 10px; 
 }
 
 .fas.fa-search {
@@ -1342,51 +1342,75 @@ body {
 }
 
 .producto-info h3 {
-    margin-right: 10px; /* Esto agrega un margen a la derecha del nombre del producto */
+    margin-right: 10px; 
 }
 
 .add-to-cart-icon {
     background: none;
     border: none;
-    color: green; /* Cambia el color del icono del carrito de compras a verde */
-    cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa por encima del icono */
+    color: green; 
+    cursor: pointer; 
 }
 
-/* Estilos generales */
-/* ... (tus estilos actuales) ... */
 
-/* Estilos para pantallas de hasta 600px de ancho */
+
 @media (max-width: 600px) {
     .titulo-compra-online {
-        padding-left: 20px; /* Reduce el padding izquierdo */
+        padding-left: 20px; 
     }
 
     .form-busqueda, .form-filtrado {
-        width: 100%; /* Hace que los formularios ocupen todo el ancho */
-        margin-left: 0; /* Elimina el margen izquierdo */
-        flex-direction: column; /* Cambia la dirección de los elementos a una columna */
+        width: 100%; 
+        margin-left: 0; 
+        flex-direction: column; 
     }
 
     .input-busqueda, .input-filtrado {
-        margin-right: 0; /* Elimina el margen derecho */
-        margin-bottom: 10px; /* Añade un margen debajo del campo de entrada */
+        margin-right: 0; 
+        margin-bottom: 10px; 
     }
 
     .producto-info {
-        flex-direction: column; /* Cambia la dirección de los elementos a una columna */
-        text-align: center; /* Centra el texto */
+        flex-direction: column; 
+        text-align: center; 
     }
 
     .producto-info h3 {
-        margin-right: 0; /* Elimina el margen derecho */
+        margin-right: 0; 
     }
 }
 
-//CARRITO
+/*CARRITO*/
+
+#carrito {
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start; 
+}
+
+.producto-en-fila {
+    flex: none;
+    box-sizing: border-box;
+    min-height: 200px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.producto-en-fila img {
+    width: 100%; 
+    height: auto; 
+    max-width: 200px; 
+    max-height: 150px; 
+    object-fit: cover; 
+}
+
+
 
 .carrito-titulo {
-    margin-left: 60px; /* Esto agrega un margen a la izquierda del texto "Carrito" */
-    margin-top: 30px; /* Esto agrega un margen entre el texto "Carrito" y el header */
+    margin-left: 60px;
+    margin-top: 30px; 
 }
 
 .carrito-producto-info {
@@ -1395,29 +1419,29 @@ body {
 }
 
 .carrito-producto-info h3 {
-    margin-right: 10px; /* Esto agrega un margen a la derecha del nombre del producto */
+    margin-right: 10px; 
 }
 
 .delete-icon {
     background: none;
     border: none;
-    color: green; /* Cambia el color del icono de eliminación a verde */
-    cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa por encima del icono */
+    color: green; 
+    cursor: pointer; 
 }
 
 .actualizar-btn {
-    background-color: white; /* Fondo blanco */
-    color: green; /* Texto verde */
-    border: 1px solid green; /* Borde verde */
-    cursor: pointer; /* Cambia el cursor a un puntero cuando se pasa por encima del botón */
-    margin-top: 5px; /* Agrega más separación entre la caja y el botón */
-    padding: 2px 10px; /* Hace el botón un poco más ancho */
-    border-radius: 5px; /* Redondea las esquinas del botón */
+    background-color: white; 
+    color: green; 
+    border: 1px solid green; 
+    cursor: pointer; 
+    margin-top: 5px; 
+    padding: 2px 10px; 
+    border-radius: 5px; 
 }
 
 .actualizar-btn:hover {
-    background-color: #64AD61; /* Cambia el fondo a #64AD61 cuando se pasa por encima del botón */
-    color: white; /* Cambia el texto a blanco cuando se pasa por encima del botón */
+    background-color: #64AD61; 
+    color: white; 
 }
 
 #total-pedido {
@@ -1425,11 +1449,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px; /* Esto agrega un poco de separación entre el total y el botón y el resto del contenido */
+    margin-top: 50px; 
 }
 
  #total-pedido p {
-    font-size: 3em !important; /* Esto aumenta el tamaño de la letra del total */
+    font-size: 3em !important; 
     font-weight: bold !important;
     color: green;
 }
@@ -1437,25 +1461,26 @@ body {
 #pedido-form {
     display: flex;
     justify-content: center;
-    width: 100%; /* Esto asegura que el formulario ocupe todo el ancho disponible */
+    width: 100%; 
+    margin-bottom: 50px;
 }
 
 #realizar-pedido {
-    margin-top: 20px; /* Esto agrega más separación entre el total y el botón de realizar pedido */
-    background-color: white !important; /* Esto hace que el fondo del botón sea blanco */
-    color: green !important; /* Esto hace que el texto del botón sea verde */
-    border: 2px solid green !important; /* Esto hace que el borde del botón sea verde */
-    border-radius: 10px !important; /* Esto redondea las esquinas del botón */
-    font-size: 1.5em !important; /* Esto hace que el texto del botón sea más grande */
-    padding: 10px 20px !important; /* Esto hace que el botón sea un poco más grande */
+    margin-top: 20px;
+    background-color: white !important; 
+    color: green !important; 
+    border: 2px solid green !important; 
+    border-radius: 10px !important; 
+    font-size: 1.5em !important; 
+    padding: 10px 20px !important;
 } 
 
 #realizar-pedido:hover {
-    background-color: #64AD61 !important; /* Cambia el color de fondo a un verde más claro cuando se pasa el ratón por encima */
-    color: white !important; /* Cambia el color del texto a blanco cuando se pasa el ratón por encima */
+    background-color: #64AD61 !important; 
+    color: white !important; 
 }
 
-/* Estilos para pantallas de tamaño pequeño (menos de 480px) */
+
 @media (max-width: 480px) {
     .carrito-producto-info {
         flex-direction: column;
@@ -1463,16 +1488,16 @@ body {
     }
 
     #realizar-pedido {
-        font-size: 0.8em !important; /* Reduce el tamaño del texto del botón */
-        padding: 5px 10px !important; /* Reduce el tamaño del botón */
+        font-size: 0.8em !important; 
+        padding: 5px 10px !important; 
     }
 
     #total-pedido p {
-        font-size: 1.5em !important; /* Reduce el tamaño del texto del total */
+        font-size: 1.5em !important; 
     }
 }
 
-/* Estilos para pantallas de tamaño mediano (entre 480px y 768px) */
+
 @media (min-width: 480px) and (max-width: 768px) {
     .carrito-producto-info {
         flex-direction: row;
@@ -1480,16 +1505,16 @@ body {
     }
 
     #realizar-pedido {
-        font-size: 1em !important; /* Aumenta el tamaño del texto del botón */
-        padding: 7px 14px !important; /* Aumenta el tamaño del botón */
+        font-size: 1em !important; 
+        padding: 7px 14px !important; 
     }
 
     #total-pedido p {
-        font-size: 2em !important; /* Aumenta el tamaño del texto del total */
+        font-size: 2em !important; 
     }
 }
 
-/* Estilos para pantallas de tamaño grande (más de 768px) */
+
 @media (min-width: 768px) {
     .carrito-producto-info {
         flex-direction: row;
@@ -1497,14 +1522,19 @@ body {
     }
 
     #realizar-pedido {
-        font-size: 1.2em !important; /* Aumenta el tamaño del texto del botón */
-        padding: 10px 20px !important; /* Aumenta el tamaño del botón */
+        font-size: 1.2em !important; 
+        padding: 10px 20px !important; 
     }
 
     #total-pedido p {
-        font-size: 2.5em !important; /* Aumenta el tamaño del texto del total */
+        font-size: 2.5em !important; 
     }
 }
+
+
+
+
+
 
 
 
