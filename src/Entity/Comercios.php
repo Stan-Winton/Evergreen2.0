@@ -68,7 +68,7 @@ class Comercios implements UserInterface, PasswordAuthenticatedUserInterface
         $this->razonSocial = $razonSocial;
         $this->codigoPostal = $codigoPostal;
         $this->usuario = new ArrayCollection();
-        $this->producto = new ArrayCollection();
+        $this->productos = new ArrayCollection(); // Cambiado de 'producto' a 'productos'
         $this->pedido = new ArrayCollection();
     }
 

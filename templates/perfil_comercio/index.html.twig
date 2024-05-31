@@ -3,15 +3,17 @@
 {% extends 'base2.html.twig' %}
 
 {% block body %}
-    <h1>Perfil de Comercio</h1>
+    <div class="commerce-profile-container">
+        <h1 class="commerce-profile-title">Perfil de Comercio</h1>
 
-    <p>Nombre: {{ comercio.getNombreComercio }}</p>
-    <p>Dirección: {{ comercio.getDireccionComercio }}</p>
-    <p>Teléfono: {{ comercio.getTelefono }}</p>
-    <p>Razón Social: {{ comercio.getRazonSocial }}</p>
-    <p>Email: {{ comercio.getEmail }}</p>
-    <p>Código Postal: {{ comercio.getCodigoPostal }}</p>
+        <p class="commerce-profile-field">Nombre: <span>{{ comercio.getNombreComercio }}</span></p>
+        <p class="commerce-profile-field">Dirección: <span>{{ comercio.getDireccionComercio }}</span></p>
+        <p class="commerce-profile-field">Teléfono: <span>{{ comercio.getTelefono }}</span></p>
+        <p class="commerce-profile-field">Razón Social: <span>{{ comercio.getRazonSocial }}</span></p>
+        <p class="commerce-profile-field">Email: <span>{{ comercio.getEmail }}</span></p>
+        <p class="commerce-profile-field">Código Postal: <span>{{ comercio.getCodigoPostal }}</span></p>
 
-    <a href="{{ path('editar_perfil_comercio') }}">Editar Perfil</a>
-    <a href="{{ path('app_logout') }}">Cerrar Sesión</a>
+        <a href="{{ path('editar_perfil_comercio') }}" class="commerce-profile-button">Editar Perfil</a>
+        <a href="{{ path('app_logout') }}" class="commerce-profile-button">Cerrar Sesión</a>
+    </div>
 {% endblock %}

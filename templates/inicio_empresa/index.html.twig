@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="container-inicio">
-    <h2 class="seccion"> Productos</h2>
+    <h2 class="seccion"> Inicio</h2>
     <section id="productos-modal">
         {% for producto in productos %}
             <div class="producto">
@@ -23,7 +23,7 @@
 
     <h2 class="seccion pedidos">Pedidos</h2>
     <section id="pedidos">
-        <table class="table">
+        <table class="table tabla-pedidos">
             <thead>
                 <tr>
                     <th scope="col"># Pedido</th>
@@ -85,7 +85,7 @@
                         <label for="productoStock" class="form-label">Cantidad de stock</label>
                         <input type="number" class="form-control" id="productoStock" name="productoStock">
                     </div>
-                    <button type="submit" class="btn btn-primary">Guardar producto</button>
+                    <button type="submit" class="btn btn-primary guardar-producto">Guardar producto</button>
                 </form>
             </div>
         </div>

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Carrito</h1>
+    <h1 class="carrito-titulo">Carrito</h1>
 
     <!-- Bloque para mostrar mensajes flash -->
     {% for message in app.flashes('error') %}
@@ -12,26 +12,28 @@
 
     <div id="carrito">
     {% for producto in productos %}
-        <div class="producto">
+        <div class="producto-en-fila">
             <img src="{{ asset('uploads/' ~ producto.imagen) }}" alt="{{ producto.nombre }}">
-            <h3>{{ producto.nombre }}</h3>
+            <div class="producto-info">
+                <h3>{{ producto.nombre }}</h3>
+                <form action="{{ path('eliminar_del_carrito', {'id': producto.id}) }}" method="post">
+                    <button type="submit" class="delete-icon">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </div>
             <p>{{ producto.precio }} Euros</p>
             <p>Stock: {{ producto.stock }}</p>
             <form action="{{ path('actualizar_carrito', {'id': producto.id}) }}" method="post">
                 <input type="number" name="cantidad" value="{{ carrito[producto.id] }}" min="1" max="{{ producto.stock }}">
-                <button type="submit">Actualizar</button>
-            </form>
-            <form action="{{ path('eliminar_del_carrito', {'id': producto.id}) }}" method="post">
-                <button type="submit">
-                    <i class="fas fa-trash"></i>
-                </button>
+                <button type="submit" class="actualizar-btn">Actualizar</button>
             </form>
         </div>
     {% endfor %}
     </div>
 
-    <div id="total">
-        <p>Total: {{ total }} Euros</p>
+    <div id="total-pedido">
+        <p>Total precio: {{ total }} Euros</p>
     </div>
 
     <form action="{{ path('realizar_pedido') }}" method="post" id="pedido-form">

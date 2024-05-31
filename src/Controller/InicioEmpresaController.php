@@ -29,6 +29,8 @@ class InicioEmpresaController extends AbstractController
         $comercio = $this->security->getUser();
 
         $productos = $productosRepository->findBy(['comercios' => $comercio], ['id' => 'DESC'], 4);
+         // Invierte el array de productos
+        $productos = array_reverse($productos);
 
         // Obtén los últimos 4 pedidos
         $pedidos = $this->pedidosRepository->findBy(['comercios' => $comercio], ['id' => 'DESC'], 4);
